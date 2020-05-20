@@ -1,9 +1,18 @@
 import React from "react";
+import EditBtn from "../EditBtn/EditBtn";
 
-function BugCards() {
+function BugCards(props) {
   return (
-    <div style={{ height: "30px", width: "200px" }}>
-      <p>some bugs will go here</p>
+    <div
+      style={{
+        height: "40px",
+        width: "300px",
+        backgroundColor: "grey",
+        justifyContent: "center",
+      }}
+    >
+      <p>some bugs will go here{props.title}</p>
+      <EditBtn />
     </div>
   );
 }
