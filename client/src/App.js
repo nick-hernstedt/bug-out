@@ -14,8 +14,9 @@ class App extends Component {
       <div className="container">
         <Nav />
         <BugBox>
-          <BugCards></BugCards>
+          <BugCards />
         </BugBox>
+
         <InProgress></InProgress>
         <NeedHelp></NeedHelp>
         <Completed></Completed>
