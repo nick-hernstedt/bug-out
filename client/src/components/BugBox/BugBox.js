@@ -1,10 +1,15 @@
-import React from "react"
+import React from "react";
+import "./style.css"
 
-function BugBox()  {
-    return (
-        <h1>Submitted Bugs</h1>
-        
-    )
-} 
+function BugBox({ children }) {
+  return (
+    <div>
+      <div>
+        <p>Todo</p>
+      </div>
+      <div>{children}</div>
+    </div>
+  );
+}
 
-export default BugBox
+export default BugBox;
