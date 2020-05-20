@@ -2,7 +2,8 @@ import React from "react"
 
 function BugBox()  {
     return (
-        <h1>POopiebutthole</h1>
+        <h1>Submitted Bugs</h1>
+        
     )
 } 
 
