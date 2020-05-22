@@ -7,8 +7,7 @@ router.route("/")
   .post(bugsController.create);
 
 
-router
-  .route("/:id")
+router.route("/:id")
   .get(bugsController.findById)
   .put(bugsController.update)
   .delete(bugsController.remove);
