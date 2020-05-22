@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Project from "./pages/Project";
 import FourOhFour from "./pages/FourOhFour";
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route exact path="/project/:id">
           <Project />
+        </Route>
+        <Route exact path="/test">
+          <Test />
         </Route>
         <Route>
           <FourOhFour />
