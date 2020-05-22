@@ -1,9 +1,13 @@
-import React from "react"
+import React from "react";
 
-function NeedHelp()  {
-    return (
-        <h1>Nick Sux</h1>
-    )
-} 
+function NeedHelp() {
+  return (
+    <div>
+      <button>
+        <i class="fa fa-star"></i>
+      </button>
+    </div>
+  );
+}
 
-export default NeedHelp
+export default NeedHelp;
