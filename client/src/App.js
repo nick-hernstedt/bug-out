@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import BugBox from "./components/BugBox/BugBox";
 import Nav from "./components/Nav/Nav";
@@ -8,19 +9,30 @@ import Completed from "./components/Completed/Completed";
 import NeedHelp from "./components/NeedHelp/NeedHelp";
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
+import Project from "./pages/Project";
+import FourOhFour from "./pages/FourOhFour";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Nav></Nav>
-        <BugBox></BugBox>
-        <InProgress></InProgress>
-        <NeedHelp></NeedHelp>
-        <Completed></Completed>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <SignUp />
+        </Route>
+        <Route exact path="/login">
+          <LogIn />
+        </Route>
+        <Route exact path="/project/:id">
+          <Project />
+        </Route>
+        <Route>
+          <FourOhFour />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
