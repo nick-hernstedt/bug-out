@@ -6,7 +6,7 @@ function BugDetails() {
       <form>
         <label for="fname">Bug Details:</label>
         <br />
-        <input type="text" name="name" />
+        <input type="text" name="bugDetails" />
       </form>
     </div>
   );
