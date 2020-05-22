@@ -24,8 +24,8 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.9.15",
     "react-mdl": "^2.1.0",
+    "styled-components": "^5.1.0"
     "save": "^2.4.0"
     "react-router-dom": "^5.2.0"
-
   }
 }
