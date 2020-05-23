@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EditBtn from "../EditBtn/EditBtn";
+import { List, ListItem } from "./List"
+import API from "../../utils/API";
+import "./style.css"
 
 function BugCards(props) {
+  // Setting our component's initial state
+
+  
+  
   return (
     <div
       style={{
@@ -11,7 +18,14 @@ function BugCards(props) {
         justifyContent: "center",
       }}
     >
-      <p>some bugs will go here{props.title}</p>
+      <List>
+        {props.bugs.map(bug => (
+          <ListItem key={bug._id}>
+            {bug.title}
+            
+          </ListItem>
+        ))}
+      </List>
       <EditBtn />
     </div>
   );
