@@ -39,15 +39,26 @@ function Test() {
 
     // }
 
+    let notAssigned = []
+    let inProgress = []
+    let completed = []
+
     function main() {
-        let listItems = []
-        for (let i = 0; i <= bugs.length; i++){
-            if (bugs.inProgress === false){
-                console.log(bugs[0])
-            } else {
-                console.log(Object.values(bugs[0]))                
-                continue
-            } 
+        for (let i = 1; i <= bugs.length; i++) {
+            if (bugs[i] != null) {
+
+
+                if (bugs[i].completed === true) {
+                    completed.push(bugs[i])
+                    continue
+                } else if (bugs[i].inProgress === true) {
+                    inProgress.push(bugs[i])
+                    continue
+                } else if (bugs[i].inProgress === false) {
+                    notAssigned.push(bugs[i])
+                    continue
+                } continue
+            }
         }
     }
 
@@ -55,12 +66,16 @@ function Test() {
 
     return (
         <div className="container">
-            <Nav />
+            
             <BugBox>
-                <BugCard bugs={bugs} />
+                <BugCard bugs={notAssigned} />
             </BugBox>
-            <InProgress></InProgress>
-            <Completed></Completed>
+            <InProgress>
+                <BugCard bugs={inProgress} />
+            </InProgress>
+            <Completed>
+                <BugCard bugs={completed} />
+            </Completed>
             <NeedHelp></NeedHelp>
 
         </div>

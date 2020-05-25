@@ -1,8 +1,13 @@
 import React from "react"
 
-function Completed()  {
+function Completed({children})  {
     return (
-        <h1>Peepeepoopoo</h1>
+        <div>
+      <div>
+        <h1>Completed</h1>
+      </div>
+      <div>{children}</div>
+    </div>
     )
 } 
 
