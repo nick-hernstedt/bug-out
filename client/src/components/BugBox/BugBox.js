@@ -5,7 +5,7 @@ function BugBox({ children }) {
   return (
     <div>
       <div>
-        <p>Todo</p>
+        <h1>Bugs to solve</h1>
       </div>
       <div>{children}</div>
     </div>

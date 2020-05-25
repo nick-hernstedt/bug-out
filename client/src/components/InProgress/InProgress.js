@@ -1,9 +1,14 @@
 import React from "react"
 
-function InProgress()  {
+function InProgress({ children }) {
     return (
-        <h1>California Love</h1>
+        <div>
+            <div>
+                <h1>In progress</h1>
+            </div>
+            <div>{children}</div>
+        </div>
     )
-} 
+}
 
 export default InProgress
