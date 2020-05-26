@@ -1,5 +1,8 @@
 import React from "react";
 import "./style.css";
+import BugName from "../BugName/BugName";
+import SubmittedBy from "../SubmittedBy/SubmittedBy";
+import BugDetails from "../BugDetails/BugDetails";
 
 function ModalBox() {
   return (
@@ -11,7 +14,9 @@ function ModalBox() {
         borderRadius: "15px",
       }}
     >
-      here is the modal background
+      <BugName />
+      <SubmittedBy />
+      <BugDetails />
     </div>
   );
 }

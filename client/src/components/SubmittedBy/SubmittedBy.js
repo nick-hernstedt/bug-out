@@ -2,13 +2,15 @@ import React from "react";
 
 function SubmittedBy() {
   return (
-    <div>
-      <form>
-        <label for="fname">Submitted By:</label>
-        <br />
-        <input type="text" name="submittedBy" />
-      </form>
-    </div>
+    <form>
+      <label for="submittedBy">Submitted By:</label>
+      <br />
+      <input
+        type="text"
+        name="submittedBy"
+        style={{ height: "25px", borderRadius: "10px", width: "200px" }}
+      />
+    </form>
   );
 }
 

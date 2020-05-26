@@ -2,13 +2,15 @@ import React from "react";
 
 function BugName() {
   return (
-    <div>
-      <form>
-        <label for="fname">Bug Name:</label>
-        <br />
-        <input type="text" name="bugName" />
-      </form>
-    </div>
+    <form>
+      <label for="bugName">Bug Name:</label>
+      <br />
+      <input
+        type="text"
+        name="bugName"
+        style={{ height: "25px", borderRadius: "10px", width: "200px" }}
+      />
+    </form>
   );
 }
 

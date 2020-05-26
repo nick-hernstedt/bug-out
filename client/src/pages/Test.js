@@ -6,7 +6,9 @@ import Completed from "../components/Completed/Completed";
 import NeedHelp from "../components/NeedHelp/NeedHelp";
 import BugCard from "../components/BugCards/BugCards";
 import ModalBox from "../components/ModalBox/ModalBox";
+import BugName from "../components/BugName/BugName";
 import API from "../utils/API";
+import BugCards from "../components/BugCards/BugCards";
 
 function Test() {
   const [bugs, setBugs] = useState([]);
