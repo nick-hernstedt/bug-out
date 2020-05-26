@@ -1,6 +1,6 @@
 import React from "react";
 
-function Dropdown() {
+function DropDown() {
   return (
     <div>
       <select name="options">
