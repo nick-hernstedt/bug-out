@@ -20,7 +20,7 @@ function ModalBox() {
         borderRadius: "15px",
       }}
     >
-      <div className="col-5">
+      <div className="col-8">
         <BugName />
         <SubmittedBy />
         <BugDetails />
@@ -29,7 +29,6 @@ function ModalBox() {
         <DateMade />
         <DropDown />
         <NeedHelp />
-        <EditBtn />
         <SubmitBtn />
       </div>
     </div>
