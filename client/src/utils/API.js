@@ -1,20 +1,20 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
+  // Gets all bugs
   getBugs: function() {
     return axios.get("/api");
   },
-  // Gets the book with the given id
+  // Gets the bugs with the given id
   getBug: function(id) {
-    return axios.get("/api/bugs/" + id);
+    return axios.get("/api/" + id);
   },
-  // Deletes the book with the given id
+  // Deletes the bugs with the given id
   deleteBug: function(id) {
-    return axios.delete("/api/bugs/" + id);
+    return axios.delete("/api/" + id);
   },
-  // Saves a book to the database
+  // Saves a bugs to the database
   saveBug: function(bugData) {
-    return axios.post("/api/bugs", bugData);
+    return axios.post("/api", bugData);
   }
 };

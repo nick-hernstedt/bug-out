@@ -9,35 +9,43 @@ import ModalBox from "../components/ModalBox/ModalBox";
 import BugName from "../components/BugName/BugName";
 import API from "../utils/API";
 import BugCards from "../components/BugCards/BugCards";
+import { Input, TextArea, FormBtn } from "../components/Form/Form";
 
 function Test() {
   const [bugs, setBugs] = useState([]);
   const [formObject, setFormObject] = useState({});
 
-  // Load all books and store them with setBooks
+ 
   useEffect(() => {
     loadBugs();
   }, []);
 
-  // Loads all books and sets them to books
   function loadBugs() {
     API.getBugs()
       .then((res) => setBugs(res.data))
       .catch((err) => console.log(err));
   }
 
-  // function swap(props) {
-  //     for (let i = 0; i < bugs.length; i++) {
-  //         switch (props[i]) {
-  //             case props[i] === false:
-  //                  return bugs[i];
-  //             case props[i] === true:
-  //                 return console.log("suckit")
-  //         }
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value })
+  };
 
-  //     }
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    console.log("clicked")
 
-  // }
+    console.log(formObject.author, formObject.title, formObject.description)
+    if (formObject.author && formObject.title && formObject.description) { 
+      API.saveBug({
+        title: formObject.title,
+        author: formObject.author,
+        description: formObject.description
+      })
+        .then(res => loadBugs())
+        .catch(err => console.log(err));
+    }
+  };
 
   let notAssigned = [];
   let inProgress = [];
@@ -76,7 +84,34 @@ function Test() {
       </Completed>
       <NeedHelp></NeedHelp>
 
-      <ModalBox></ModalBox>
+      <ModalBox text={
+        <form>
+          <Input
+            onChange={handleInputChange}
+            name="title"
+            placeholder="Title (required)"
+          />
+          <Input
+            onChange={handleInputChange}
+            name="author"
+            placeholder="Author (required)"
+          />
+          <TextArea
+            onChange={handleInputChange}
+            name="description"
+            placeholder="Description (required)"
+          />
+          <FormBtn
+            disabled={!(formObject.author && formObject.title && formObject.description)}
+            onClick={handleFormSubmit}
+          >
+            Submit Bug
+              </FormBtn>
+        </form>
+      }>
+
+
+      </ModalBox>
     </div>
   );
 }
