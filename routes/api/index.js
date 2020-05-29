@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const bugRoutes = require("./bugs");
+// const router = require("express").Router();
+// const bugRoutes = require("./bugs");
 
-// Bug routes
-router.use("/bugs", bugRoutes);
+// // Bug routes
+// router.use("/bugs", bugRoutes);
 
-module.exports = router;
+// module.exports = router;
