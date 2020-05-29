@@ -22,7 +22,9 @@ function Test() {
 
   function loadBugs() {
     API.getBugs()
-      .then((res) => setBugs(res.data))
+      .then((res) => {
+        setBugs(res.data)
+      })
       .catch((err) => console.log(err));
   }
 
@@ -33,9 +35,9 @@ function Test() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log("clicked")
+    
 
-    console.log(formObject.author, formObject.title, formObject.description)
+   
     if (formObject.author && formObject.title && formObject.description) { 
       API.saveBug({
         title: formObject.title,

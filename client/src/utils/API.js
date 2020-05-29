@@ -15,6 +15,6 @@ export default {
   },
   // Saves a bugs to the database
   saveBug: function(bugData) {
-    return axios.post("/api", bugData);
+    return axios.post("/api/", bugData);
   }
 };

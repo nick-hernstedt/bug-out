@@ -5,7 +5,13 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const bugsController = require("./controllers/bugController");
 const router = require("express").Router();
+const bodyParser = require("body-parser")
 
+
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -18,7 +24,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bugCollection")
 // Define any API routes before this runs
 app.route("/api/")
   .get(bugsController.findAll)
-  .post(bugsController.create);
+  .post((req, res) => { 
+    bugsController.create(req, res) 
+  });
 
 
 app.route("/api/:id")
