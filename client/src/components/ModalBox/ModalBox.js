@@ -16,8 +16,9 @@ function ModalBox() {
       style={{
         width: "600px",
         height: "300px",
-        backgroundColor: "grey",
+        backgroundColor: "#01135a",
         borderRadius: "15px",
+        padding: "10px",
       }}
     >
       <div className="col-8">

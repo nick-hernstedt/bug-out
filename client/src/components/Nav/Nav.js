@@ -1,26 +1,12 @@
-import React from "react"
-import { Layout, Header, Content } from "react-mdl";
+import React from "react";
+import Logo from "../Logo/Logo";
 
-
-function Nav()  {
-    return (
-        <div className="demo-big-content">
-        <Layout>
-
-            <Header title="Bug-Out" scroll>
-
-                
-               
-                    <a href="#">Logout</a>
-            </Header>
-       
-           
-            <Content>
-                <div className="page-content" />
-            </Content>
-        </Layout>
+function Nav() {
+  return (
+    <div className="row">
+      <Logo className="col-4" />
     </div>
-    )
-} 
+  );
+}
 
 export default Nav;
