@@ -75,8 +75,6 @@ function Test() {
     <div
       className="row justify-content-md-center"
       style={{
-        backgroundImage: `url(${Image})`,
-        backgroundSize: "cover",
         width: "100%",
         height: "100%",
       }}
