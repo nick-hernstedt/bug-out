@@ -7,6 +7,7 @@ function SubmittedBy() {
         color: "#ff01ff",
         fontFamily: '"Tinos", serif',
         fontSize: "20px",
+        paddingTop: "5px",
       }}
     >
       <label for="submittedBy">Submitted By:</label>
