@@ -16,7 +16,7 @@ function Test() {
   const [bugs, setBugs] = useState([]);
   const [formObject, setFormObject] = useState({});
 
- 
+
   useEffect(() => {
     loadBugs();
   }, []);
@@ -36,10 +36,10 @@ function Test() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    
 
-   
-    if (formObject.author && formObject.title && formObject.description) { 
+
+
+    if (formObject.author && formObject.title && formObject.description) {
       API.saveBug({
         title: formObject.title,
         author: formObject.author,
@@ -98,35 +98,36 @@ function Test() {
         <NeedHelp></NeedHelp>
 
 
-      <ModalBox text={
-        <form>
-          <Input
-            onChange={handleInputChange}
-            name="title"
-            placeholder="Title (required)"
-          />
-          <Input
-            onChange={handleInputChange}
-            name="author"
-            placeholder="Author (required)"
-          />
-          <TextArea
-            onChange={handleInputChange}
-            name="description"
-            placeholder="Description (required)"
-          />
-          <FormBtn
-            disabled={!(formObject.author && formObject.title && formObject.description)}
-            onClick={handleFormSubmit}
-          >
-            Submit Bug
+        <ModalBox text={
+          <form>
+            <Input
+              onChange={handleInputChange}
+              name="title"
+              placeholder="Title (required)"
+            />
+            <Input
+              onChange={handleInputChange}
+              name="author"
+              placeholder="Author (required)"
+            />
+            <TextArea
+              onChange={handleInputChange}
+              name="description"
+              placeholder="Description (required)"
+            />
+            <FormBtn
+              disabled={!(formObject.author && formObject.title && formObject.description)}
+              onClick={handleFormSubmit}
+            >
+              Submit Bug
               </FormBtn>
-        </form>
-      }>
+          </form>
+        }>
 
 
-      </ModalBox>
+        </ModalBox>
 
+      </div>
     </div>
   );
 }
