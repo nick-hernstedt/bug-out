@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API"
+import auth from "../utils/auth"
 
 function SignUp() {
   const [signUp, setSignUp] = useState({
