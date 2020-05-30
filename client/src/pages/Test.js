@@ -16,7 +16,6 @@ function Test() {
   const [bugs, setBugs] = useState([]);
   const [formObject, setFormObject] = useState({});
 
-
   useEffect(() => {
     loadBugs();
   }, []);
@@ -24,31 +23,29 @@ function Test() {
   function loadBugs() {
     API.getBugs()
       .then((res) => {
-        setBugs(res.data)
+        setBugs(res.data);
       })
       .catch((err) => console.log(err));
   }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value })
-  };
+    setFormObject({ ...formObject, [name]: value });
+  }
 
   function handleFormSubmit(event) {
     event.preventDefault();
-
-
 
     if (formObject.author && formObject.title && formObject.description) {
       API.saveBug({
         title: formObject.title,
         author: formObject.author,
-        description: formObject.description
+        description: formObject.description,
       })
-        .then(res => loadBugs())
-        .catch(err => console.log(err));
+        .then((res) => loadBugs())
+        .catch((err) => console.log(err));
     }
-  };
+  }
 
   let notAssigned = [];
   let inProgress = [];
@@ -97,36 +94,54 @@ function Test() {
         </Completed>
         <NeedHelp></NeedHelp>
 
-
-        <ModalBox text={
-          <form>
-            <Input
-              onChange={handleInputChange}
-              name="title"
-              placeholder="Title (required)"
-            />
-            <Input
-              onChange={handleInputChange}
-              name="author"
-              placeholder="Author (required)"
-            />
-            <TextArea
-              onChange={handleInputChange}
-              name="description"
-              placeholder="Description (required)"
-            />
-            <FormBtn
-              disabled={!(formObject.author && formObject.title && formObject.description)}
-              onClick={handleFormSubmit}
-            >
-              Submit Bug
+        <ModalBox
+          text={
+            <form>
+              <Input
+                onChange={handleInputChange}
+                name="title"
+                placeholder="Bug Name (required)"
+                style={{
+                  height: "25px",
+                  borderRadius: "5px",
+                  width: "200px",
+                }}
+              />
+              <Input
+                onChange={handleInputChange}
+                name="author"
+                placeholder="Submitted By (required)"
+                style={{
+                  height: "25px",
+                  borderRadius: "5px",
+                  width: "200px",
+                }}
+              />
+              <TextArea
+                onChange={handleInputChange}
+                name="description"
+                placeholder="Description (required)"
+                style={{
+                  height: "150px",
+                  borderRadius: "5px",
+                  width: "300px",
+                }}
+              />
+              <FormBtn
+                disabled={
+                  !(
+                    formObject.author &&
+                    formObject.title &&
+                    formObject.description
+                  )
+                }
+                onClick={handleFormSubmit}
+              >
+                Submit Bug
               </FormBtn>
-          </form>
-        }>
-
-
-        </ModalBox>
-
+            </form>
+          }
+        ></ModalBox>
       </div>
     </div>
   );
