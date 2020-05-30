@@ -17,9 +17,11 @@ function ModalBox(props) {
       className="row"
       style={{
         width: "600px",
-        height: "300px",
-        backgroundColor: "grey",
+        height: "330px",
+        backgroundColor: "#01135a",
         borderRadius: "15px",
+        padding: "10px",
+        boxShadow: "0px 0px 60px 30px #ff01ff",
       }}
     >
       <div className="col-8">
