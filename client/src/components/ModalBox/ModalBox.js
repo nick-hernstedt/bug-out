@@ -9,7 +9,9 @@ import NeedHelp from "../NeedHelp/NeedHelp";
 import EditBtn from "../EditBtn/EditBtn";
 import SubmitBtn from "../SubmitBtn/SubmitBtn";
 
-function ModalBox() {
+
+function ModalBox(props) {
+  
   return (
     <div
       className="row"
@@ -23,16 +25,8 @@ function ModalBox() {
       }}
     >
       <div className="col-8">
-        <BugName />
-        <SubmittedBy />
-        <BugDetails />
-      </div>
-      <div className="col-4">
-        <DateMade />
-        <DropDown />
-        <NeedHelp />
-        <SubmitBtn />
-      </div>
+        {props.text}
+        </div>
     </div>
   );
 }

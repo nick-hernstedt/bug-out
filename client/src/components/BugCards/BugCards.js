@@ -23,10 +23,10 @@ function BugCards(props) {
           <ListItem key={bug._id}>
             {bug.title}
             
+            <EditBtn />
           </ListItem>
         ))}
       </List>
-      <EditBtn />
     </div>
   );
 }
