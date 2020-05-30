@@ -81,18 +81,27 @@ function Test() {
         height: "100%",
       }}
     >
+    
       <div className="col-8 ">
         <Nav></Nav>
+        <div className="row">
+        <div className="col-4">
         <BugBox>
           <BugCard bugs={notAssigned} />
         </BugBox>
+        </div>
+        <div className="col-4">
         <InProgress>
           <BugCard bugs={inProgress} />
         </InProgress>
+        </div>
+        <div className="col-4">
         <Completed>
           <BugCard bugs={completed} />
         </Completed>
+        </div>
         <NeedHelp></NeedHelp>
+        </div>
 
         <ModalBox
           text={

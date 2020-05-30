@@ -21,7 +21,7 @@ function ModalBox(props) {
         backgroundColor: "#01135a",
         borderRadius: "15px",
         padding: "10px",
-        boxShadow: "0px 0px 60px 30px #ff01ff",
+        boxShadow: "0px 0px 60px 30px #08C9C0",
       }}
     >
       <div className="col-8">
