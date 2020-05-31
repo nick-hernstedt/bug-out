@@ -1,0 +1,10 @@
+.editBtn {
+  margin-left: 250px;
+  transform: translateY(-25px);
+  color: #ff01ff;
+  /* visibility: hidden; */
+}
+
+.editBtn:hover {
+  visibility: visible;
+}

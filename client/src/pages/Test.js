@@ -11,6 +11,7 @@ import API from "../utils/API";
 import Image from "../assets/images/1iwcit1gidyy.jpg";
 import BugCards from "../components/BugCards/BugCards";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
+import "./app.css";
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -79,31 +80,31 @@ function Test() {
         height: "100%",
       }}
     >
-    
       <div className="col-8 ">
         <Nav></Nav>
         <div className="row">
-        <div className="col-4">
-        <BugBox>
-          <BugCard bugs={notAssigned} />
-        </BugBox>
-        </div>
-        <div className="col-4">
-        <InProgress>
-          <BugCard bugs={inProgress} />
-        </InProgress>
-        </div>
-        <div className="col-4">
-        <Completed>
-          <BugCard bugs={completed} />
-        </Completed>
-        </div>
-        <NeedHelp></NeedHelp>
+          <div className="col-4">
+            <BugBox>
+              <BugCard bugs={notAssigned} />
+            </BugBox>
+          </div>
+          <div className="col-4">
+            <InProgress>
+              <BugCard bugs={inProgress} />
+            </InProgress>
+          </div>
+          <div className="col-4">
+            <Completed>
+              <BugCard bugs={completed} />
+            </Completed>
+          </div>
         </div>
 
         <ModalBox
+          className="row"
           text={
             <form>
+              <p className="form-text">Bug Name:</p>
               <Input
                 onChange={handleInputChange}
                 name="title"
@@ -114,6 +115,7 @@ function Test() {
                   width: "200px",
                 }}
               />
+              <p className="form-text">Submitted By:</p>
               <Input
                 onChange={handleInputChange}
                 name="author"
@@ -124,6 +126,7 @@ function Test() {
                   width: "200px",
                 }}
               />
+              <p className="form-text">Bug Description:</p>
               <TextArea
                 onChange={handleInputChange}
                 name="description"
@@ -149,6 +152,7 @@ function Test() {
             </form>
           }
         ></ModalBox>
+        <NeedHelp></NeedHelp>
       </div>
     </div>
   );

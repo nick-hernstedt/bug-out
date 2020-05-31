@@ -9,24 +9,20 @@ import NeedHelp from "../NeedHelp/NeedHelp";
 import EditBtn from "../EditBtn/EditBtn";
 import SubmitBtn from "../SubmitBtn/SubmitBtn";
 
-
 function ModalBox(props) {
-  
   return (
     <div
       className="row"
       style={{
         width: "600px",
-        height: "330px",
+        height: "350px",
         backgroundColor: "#01135a",
         borderRadius: "15px",
         padding: "10px",
         boxShadow: "0px 0px 60px 30px #08C9C0",
       }}
     >
-      <div className="col-8">
-        {props.text}
-        </div>
+      <div className="col-8">{props.text}</div>
     </div>
   );
 }

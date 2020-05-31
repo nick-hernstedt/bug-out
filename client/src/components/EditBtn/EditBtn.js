@@ -1,17 +1,12 @@
 import React from "react";
+import "./EditBtn.css";
 
 function EditBtn() {
   function editBug() {
     alert("Hello!");
   }
 
-  return (
-    <i
-      onClick={editBug}
-      className="fa fa-edit"
-      style={{ marginLeft: "280px", transform: "translateY(-25px)" }}
-    ></i>
-  );
+  return <i onClick={editBug} className="fa fa-edit editBtn"></i>;
 }
 
 export default EditBtn;
