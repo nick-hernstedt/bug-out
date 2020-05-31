@@ -24,7 +24,7 @@ export function FormBtn(props) {
     <button
       {...props}
       style={{ float: "right", marginBottom: 10 }}
-      className="btn btn-primary submitBtn"
+      className="submitBtn"
     >
       {props.children}
     </button>

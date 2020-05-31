@@ -1,4 +1,11 @@
 .submitBtn {
-  transform: translate(100px, -30px);
+  transform: translate(150px, -53px);
+  width: 150px;
   background-color: #08c9c0 !important;
+  color: black;
+  height: 40px;
+}
+
+.submitBtn:hover {
+  color: #ff01ff;
 }

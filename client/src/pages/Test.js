@@ -98,13 +98,13 @@ function Test() {
               <BugCard bugs={completed} />
             </Completed>
           </div>
-          <NeedHelp></NeedHelp>
         </div>
 
         <ModalBox
           className="row"
           text={
             <form>
+              <p className="form-text">Bug Name:</p>
               <Input
                 onChange={handleInputChange}
                 name="title"
@@ -115,6 +115,7 @@ function Test() {
                   width: "200px",
                 }}
               />
+              <p className="form-text">Submitted By:</p>
               <Input
                 onChange={handleInputChange}
                 name="author"
@@ -125,6 +126,7 @@ function Test() {
                   width: "200px",
                 }}
               />
+              <p className="form-text">Bug Description:</p>
               <TextArea
                 onChange={handleInputChange}
                 name="description"
@@ -150,6 +152,7 @@ function Test() {
             </form>
           }
         ></ModalBox>
+        <NeedHelp></NeedHelp>
       </div>
     </div>
   );
