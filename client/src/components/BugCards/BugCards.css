@@ -7,4 +7,11 @@
   font-size: 21px;
   height: 55px;
   margin-top: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px 5px #08c9c0;
+  color: #ff01ff;
 }
