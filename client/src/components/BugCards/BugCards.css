@@ -1,0 +1,10 @@
+.list-group-item {
+  background-color: #08c9c0 !important;
+  font-family: "Tinos", serif;
+  justify-content: center;
+  text-align: center;
+  width: 300px;
+  font-size: 21px;
+  height: 55px;
+  margin-top: 10px;
+}
