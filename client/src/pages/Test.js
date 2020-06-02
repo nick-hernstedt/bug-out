@@ -111,7 +111,7 @@ function Test() {
                 placeholder="Bug Name (required)"
                 style={{
                   height: "25px",
-                  borderRadius: "5px",
+                  // borderRadius: "5px",
                   width: "200px",
                 }}
               />
@@ -122,7 +122,7 @@ function Test() {
                 placeholder="Submitted By (required)"
                 style={{
                   height: "25px",
-                  borderRadius: "5px",
+                  // borderRadius: "5px",
                   width: "200px",
                 }}
               />
@@ -133,7 +133,7 @@ function Test() {
                 placeholder="Description (required)"
                 style={{
                   height: "150px",
-                  borderRadius: "5px",
+                  // borderRadius: "5px",
                   width: "300px",
                 }}
               />

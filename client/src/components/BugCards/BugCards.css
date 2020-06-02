@@ -1,6 +1,8 @@
 .list-group-item {
   background-color: #08c9c0 !important;
   font-family: "Tinos", serif;
+  list-style: none;
+  border-radius: 0px !important;
   justify-content: center;
   text-align: center;
   width: 300px;

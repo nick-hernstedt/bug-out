@@ -12,7 +12,7 @@ function BugCards(props) {
     <div>
       <List>
         {props.bugs.map((bug) => (
-          <ListItem key={bug._id} style={{ borderRadius: "15px;" }}>
+          <ListItem key={bug._id}>
             {bug.title}
 
             <EditBtn />
