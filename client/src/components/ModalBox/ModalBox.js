@@ -8,6 +8,7 @@ import DropDown from "../DropDown/DropDown";
 import NeedHelp from "../NeedHelp/NeedHelp";
 import EditBtn from "../EditBtn/EditBtn";
 import SubmitBtn from "../SubmitBtn/SubmitBtn";
+import CloseButton from "../CloseButton/CloseButton";
 
 function ModalBox(props) {
   return (
@@ -23,9 +24,11 @@ function ModalBox(props) {
     >
       <div className="col-7">{props.text}</div>
       <div className="col-5">
+        <CloseButton />
+
         <DateMade />
-        <DropDown />
         <NeedHelp />
+        <DropDown />
       </div>
     </div>
   );

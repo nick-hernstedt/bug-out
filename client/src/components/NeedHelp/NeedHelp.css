@@ -3,3 +3,8 @@
   font-family: "Tinos", serif;
   font-size: 16px;
 }
+
+.help {
+  align-items: center;
+  justify-content: center;
+}
