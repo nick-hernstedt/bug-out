@@ -3,7 +3,7 @@ import "./NeedHelp.css";
 
 function NeedHelp() {
   return (
-    <div className="row">
+    <div className="row help">
       <p id="title">Need Help:</p>
       <button>
         <i class="fa fa-star"></i>
