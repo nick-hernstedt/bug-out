@@ -10,6 +10,7 @@ import BugName from "../components/BugName/BugName";
 import API from "../utils/API";
 import Image from "../assets/images/1iwcit1gidyy.jpg";
 import BugCards from "../components/BugCards/BugCards";
+import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
 import "./app.css";
 
@@ -82,6 +83,7 @@ function Test() {
     >
       <div className="col-8 ">
         <Nav></Nav>
+        <UpdateModalBtn />
         <div className="row">
           <div className="col-4">
             <BugBox>
