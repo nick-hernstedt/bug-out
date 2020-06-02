@@ -10,6 +10,7 @@ const passport = require("passport")
 const session = require("express-session");
 const user = require("./controllers/userController");
 const cors = require('cors');
+require("./client/config/middleware/isAuthenticated")
 
 
 
@@ -69,16 +70,19 @@ app.post("/api/login", passport.authenticate("local"), function (req, res) {
   res.json(req.user);
 });
 
+function redirect(res) {
+  
+    res.redirect(307, "/api/login");
+  
+}
 
 app.post("/api/signup", function (req, res) {
  
   user.create(req, res)
-  .then(function () {
-    res.redirect(307, "/api/login");
-  })
-  .catch(function (err) {
-    res.status(401).json(err);
-  });
+  
+  redirect(res)
+
+  
 })
 
 
