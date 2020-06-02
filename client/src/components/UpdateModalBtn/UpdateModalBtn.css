@@ -7,8 +7,3 @@ button {
 button:hover {
   color: #ff01ff;
 }
-
-button:focus {
-  outline: none;
-  box-shadow: "0px 0px 60px 30px #08C9C0";
-}
