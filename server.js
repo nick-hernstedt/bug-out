@@ -8,6 +8,7 @@ const router = require("express").Router();
 const bodyParser = require("body-parser")
 const passport = require("passport")
 const session = require("express-session");
+const user = require("./controllers/userController");
 const cors = require('cors');
 
 
@@ -70,9 +71,8 @@ app.post("/api/login", passport.authenticate("local"), function (req, res) {
 
 app.post("/api/signup", function (req, res) {
   console.log("GET IT MOTHAFUCKA")
-  db.User.create({
-    project: req.body.user,
-    password: req.body.password
+  .post((req, res) => {
+    user.create(req, res)
   })
     .then(function () {
       res.redirect(307, "/api/login");

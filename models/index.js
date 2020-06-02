@@ -1,4 +1,5 @@
 module.exports = {
-    Bug: require("./bug")
+    Bug: require("./bug"),
+    User: require("./user")
   };
   
