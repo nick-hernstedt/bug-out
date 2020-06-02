@@ -8,3 +8,6 @@
   align-items: center;
   justify-content: center;
 }
+#help:hover {
+  color: #f8bd10;
+}
