@@ -46,7 +46,7 @@ if (process.env.NODE_ENV === "production") {
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bugCollection");
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(session({ secret: "The Iron Giant", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -69,18 +69,18 @@ app.post("/api/login", passport.authenticate("local"), function (req, res) {
   res.json(req.user);
 });
 
+
 app.post("/api/signup", function (req, res) {
-  console.log("GET IT MOTHAFUCKA")
-  .post((req, res) => {
-    user.create(req, res)
+ 
+  user.create(req, res)
+  .then(function () {
+    res.redirect(307, "/api/login");
   })
-    .then(function () {
-      res.redirect(307, "/api/login");
-    })
-    .catch(function (err) {
-      res.status(401).json(err);
-    });
-});
+  .catch(function (err) {
+    res.status(401).json(err);
+  });
+})
+
 
 app.get("/logout", function (req, res) {
   req.logout();

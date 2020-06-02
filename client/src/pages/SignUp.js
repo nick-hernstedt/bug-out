@@ -4,8 +4,8 @@ import axios from "axios"
 
 function SignUp() {
   const [signUp, setSignUp] = useState({
-    user: "",
-    pass: "",
+    project: "",
+    password: "",
   });
 
   function handleChange(event) {
@@ -22,10 +22,10 @@ function SignUp() {
     event.preventDefault()
 
     console.log(signUp)
-    if (signUp.user && signUp.pass) {
+    if (signUp.project && signUp.password) {
       axios.post("http://localhost:3001/api/signup", {
-        user: signUp.user,
-        pass: signUp.pass
+        project: signUp.project,
+        password: signUp.password
       }).then(function (response) {
         console.log(response.data)
       })
@@ -43,11 +43,11 @@ function SignUp() {
       <form class="signup">
         <div class="form-group">
           <label for="projectName">Project Name</label>
-          <input class="form-control" id="user-input" placeholder="Project Name" onChange={handleChange} name="user" />
+          <input class="form-control" id="user-input" placeholder="Project Name" onChange={handleChange} name="project" />
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="password-input" placeholder="Password" name="pass" onChange={handleChange} />
+          <input type="password" class="form-control" id="password-input" placeholder="Password" name="password" onChange={handleChange} />
         </div>
         <div id="alert" class="alert alert-danger" role="alert">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
