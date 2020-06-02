@@ -8,4 +8,5 @@
 
 .submitBtn:hover {
   color: #ff01ff;
+  cursor: pointer;
 }

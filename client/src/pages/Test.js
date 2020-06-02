@@ -138,6 +138,7 @@ function Test() {
                 }}
               />
               <FormBtn
+                stlye={{ cursor: "pointer" }}
                 disabled={
                   !(
                     formObject.author &&
