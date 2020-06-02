@@ -8,6 +8,28 @@ const router = require("express").Router();
 const bodyParser = require("body-parser")
 const passport = require("passport")
 const session = require("express-session");
+const cors = require('cors');
+
+
+
+var allowedOrigins = ['http://127.0.0.1:5500', 'http://localhost:3000',
+  'http://yourapp.com'];
+
+
+app.use(cors({
+  origin: function (origin, callback) {
+    console.log(origin)
+    // allow requests with no origin 
+    // (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      var msg = 'The CORS policy for this site does not ' +
+        'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
 
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
@@ -22,6 +44,10 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bugCollection");
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Define any API routes before this runs
 app.route("/api/")
@@ -43,8 +69,9 @@ app.post("/api/login", passport.authenticate("local"), function (req, res) {
 });
 
 app.post("/api/signup", function (req, res) {
+  console.log("GET IT MOTHAFUCKA")
   db.User.create({
-    email: req.body.email,
+    project: req.body.user,
     password: req.body.password
   })
     .then(function () {

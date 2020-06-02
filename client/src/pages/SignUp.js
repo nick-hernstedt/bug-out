@@ -18,12 +18,20 @@ function SignUp() {
 
   }
 
-  function verify (){
-    if (signUp.user && signUp.pass){
-      axios.post("/api/signup", {
+  function verify(event) {
+    event.preventDefault()
+
+    console.log(signUp)
+    if (signUp.user && signUp.pass) {
+      axios.post("http://localhost:3001/api/signup", {
         user: signUp.user,
         pass: signUp.pass
+      }).then(function (response) {
+        console.log(response.data)
       })
+        .catch(function (err) {
+          console.log(err)
+        })
     }
   }
 
@@ -35,20 +43,20 @@ function SignUp() {
       <form class="signup">
         <div class="form-group">
           <label for="projectName">Project Name</label>
-          <input class="form-control" id="user-input" placeholder="Project Name" name="user"/>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password" />
-          </div>
-            <div id="alert" class="alert alert-danger" role="alert">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
-            <button type="submit" class="btn btn-default" onClick={verify()}>Sign Up</button>
-        </form>
-        <p>Or log in <a href="/login">here</a></p>
+          <input class="form-control" id="user-input" placeholder="Project Name" onChange={handleChange} name="user" />
         </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="password-input" placeholder="Password" name="pass" onChange={handleChange} />
+        </div>
+        <div id="alert" class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> <span class="msg"></span>
+        </div>
+        <button type="submit" class="btn btn-default" onClick={(event) => { verify(event) }}>Sign Up</button>
+      </form>
+      <p>Or log in <a href="/login">here</a></p>
+    </div>
   );
 }
 
