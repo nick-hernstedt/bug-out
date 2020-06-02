@@ -14,6 +14,6 @@
 
 .list-group-item:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 10px 5px #08c9c0;
+  box-shadow: 0px 0px 10px 5px #ff01ff;
   color: #ff01ff;
 }
