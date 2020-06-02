@@ -7,4 +7,5 @@
 
 .editBtn:hover {
   visibility: visible;
+  cursor: pointer;
 }

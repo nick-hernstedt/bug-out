@@ -1,5 +1,9 @@
+body {
+  font-family: "Tinos", serif;
+}
+
 .submitBtn {
-  transform: translate(150px, -53px);
+  /* transform: translate(200px, -53px); */
   width: 150px;
   background-color: #08c9c0 !important;
   color: black;
@@ -8,4 +12,5 @@
 
 .submitBtn:hover {
   color: #ff01ff;
+  cursor: pointer;
 }

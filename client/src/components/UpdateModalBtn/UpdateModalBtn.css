@@ -1,0 +1,14 @@
+button {
+  background-color: #08c9c0;
+  font-family: "Tinos", serif;
+  border-color: #08c9c0;
+}
+
+button:hover {
+  color: #ff01ff;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: "0px 0px 60px 30px #08C9C0";
+}

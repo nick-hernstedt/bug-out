@@ -1,8 +1,10 @@
 import React from "react";
+import "./NeedHelp.css";
 
 function NeedHelp() {
   return (
-    <div>
+    <div className="row">
+      <p id="title">Need Help:</p>
       <button>
         <i class="fa fa-star"></i>
       </button>

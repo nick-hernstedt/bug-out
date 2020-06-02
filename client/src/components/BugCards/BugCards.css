@@ -1,6 +1,8 @@
 .list-group-item {
   background-color: #08c9c0 !important;
   font-family: "Tinos", serif;
+  list-style: none;
+  border-radius: 0px !important;
   justify-content: center;
   text-align: center;
   width: 300px;
@@ -12,6 +14,6 @@
 
 .list-group-item:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 10px 5px #08c9c0;
+  box-shadow: 0px 0px 10px 5px #ff01ff;
   color: #ff01ff;
 }
