@@ -152,7 +152,6 @@ function Test() {
             </form>
           }
         ></ModalBox>
-        <NeedHelp></NeedHelp>
       </div>
     </div>
   );

@@ -22,7 +22,12 @@ function ModalBox(props) {
         boxShadow: "0px 0px 60px 30px #08C9C0",
       }}
     >
-      <div className="col-8">{props.text}</div>
+      <div className="col-7">{props.text}</div>
+      <div className="col-5">
+        <DateMade />
+        <DropDown />
+        <NeedHelp />
+      </div>
     </div>
   );
 }
