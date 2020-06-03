@@ -135,7 +135,7 @@ function Test() {
               }}
             />
             <FormBtn
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", transform: "translate(220px, 0px)" }}
               disabled={
                 !(
                   formObject.author &&

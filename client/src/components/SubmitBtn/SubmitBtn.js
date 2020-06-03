@@ -3,9 +3,9 @@ import "./SubmitBtn.css";
 
 function SubmitBtn() {
   return (
-    <div className="submitBtn">
-      <button type="button">Submit</button>
-    </div>
+    <button type="button" className="submitBtn">
+      Submit
+    </button>
   );
 }
 
