@@ -17,3 +17,7 @@
   box-shadow: 0px 0px 10px 5px #ff01ff;
   color: #ff01ff;
 }
+
+.list-group-item:hover .editBtn {
+  visibility: visible;
+}

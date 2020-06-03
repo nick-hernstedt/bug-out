@@ -16,13 +16,14 @@ function ModalBox(props) {
       className="row"
       style={{
         width: "600px",
+        margin: "auto",
         height: "350px",
         backgroundColor: "#01135a",
         padding: "10px",
         boxShadow: "0px 0px 60px 30px #08C9C0",
       }}
     >
-      <div className="col-7">{props.text}</div>
+      <div className="col-7">{props.children}</div>
       <div className="col-5">
         <CloseButton />
 
