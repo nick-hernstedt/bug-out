@@ -24,7 +24,7 @@ function SignUp() {
         password: signUp.password
       }
     }).then(function (response) {
-      console.log(response.data)
+      window.location.replace("/test")
     }).catch(function (err) {
       console.log(err)
     })
