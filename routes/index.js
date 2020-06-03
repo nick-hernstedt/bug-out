@@ -1,10 +1,11 @@
+const express = require ("express")
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
-const bugsController = require("../../controllers/bugController");
+const bugsController = require("../controllers/bugController");
 
 // API Routes
-// router.use("/api", apiRoutes);
+router.use("/api", apiRoutes);
 
 
 
