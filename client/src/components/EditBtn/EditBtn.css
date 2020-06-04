@@ -2,10 +2,15 @@
   margin-left: 250px;
   transform: translateY(-25px);
   color: #ff01ff;
-  /* visibility: hidden; */
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  visibility: hidden;
 }
 
-.editBtn:hover {
+.editBtn:hover .edit {
   visibility: visible;
   cursor: pointer;
 }
