@@ -13,6 +13,9 @@ import BugCards from "../components/BugCards/BugCards";
 import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
 import "./app.css";
+import axios from "axios"
+
+
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -48,110 +51,137 @@ function Test() {
         .catch((err) => console.log(err));
     }
   }
+  let checker = ""
 
-  let notAssigned = [];
-  let inProgress = [];
-  let completed = [];
 
-  function main() {
-    for (let i = 1; i <= bugs.length; i++) {
-      if (bugs[i] != null) {
-        if (bugs[i].completed === true) {
-          completed.push(bugs[i]);
-          continue;
-        } else if (bugs[i].inProgress === true) {
-          inProgress.push(bugs[i]);
-          continue;
-        } else if (bugs[i].inProgress === false) {
-          notAssigned.push(bugs[i]);
-          continue;
-        }
+  function start() {
+    const data = JSON.parse(localStorage.getItem("data"))
+    console.log(data.user.token)
+    axios.get('api/users/current', {
+      headers: {
+        "Authorization": data.user.token,
+        "Content-Type": "application/json"
+      },
+    })
+      .then(function (req) {
+
+      console.log(req)
+    })
+}
+
+
+
+
+
+
+
+start()
+
+
+let notAssigned = [];
+let inProgress = [];
+let completed = [];
+// let currentUser = checker
+
+function main() {
+  for (let i = 1; i <= bugs.length; i++) {
+    if (bugs[i] != null) {
+      if (bugs[i].completed === true) {
+        completed.push(bugs[i]);
+        continue;
+      } else if (bugs[i].inProgress === true) {
+        inProgress.push(bugs[i]);
+        continue;
+      } else if (bugs[i].inProgress === false) {
+        notAssigned.push(bugs[i]);
         continue;
       }
+      continue;
     }
   }
+}
 
-  main();
+main();
 
-  return (
-    <div
-      className="row justify-content-md-center"
-      style={{
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <div className="col-8 ">
-        <Nav></Nav>
-        <UpdateModalBtn />
-        <div className="row">
-          <div className="col-4">
-            <BugBox>
-              <BugCard bugs={notAssigned} />
-            </BugBox>
-          </div>
-          <div className="col-4">
-            <InProgress>
-              <BugCard bugs={inProgress} />
-            </InProgress>
-          </div>
-          <div className="col-4">
-            <Completed>
-              <BugCard bugs={completed} />
-            </Completed>
-          </div>
+return (
+  <div
+    className="row justify-content-md-center"
+    style={{
+      width: "100%",
+      height: "100%",
+    }}
+  >
+    <div className="col-8 ">
+      <Nav></Nav>
+      <UpdateModalBtn />
+      <div className="row">
+        <div className="col-4">
+          <BugBox>
+            <BugCard bugs={notAssigned} />
+          </BugBox>
         </div>
-
-        <ModalBox className="row" id="newBug">
-          <form>
-            <p className="form-text">Bug Name:</p>
-            <Input
-              onChange={handleInputChange}
-              name="title"
-              placeholder="Bug Name (required)"
-              style={{
-                height: "25px",
-                width: "200px",
-              }}
-            />
-            <p className="form-text">Submitted By:</p>
-            <Input
-              onChange={handleInputChange}
-              name="author"
-              placeholder="Submitted By (required)"
-              style={{
-                height: "25px",
-                width: "200px",
-              }}
-            />
-            <p className="form-text">Bug Description:</p>
-            <TextArea
-              onChange={handleInputChange}
-              name="description"
-              placeholder="Description (required)"
-              style={{
-                height: "150px",
-                width: "300px",
-              }}
-            />
-            <FormBtn
-              style={{ cursor: "pointer", transform: "translate(220px, 0px)" }}
-              disabled={
-                !(
-                  formObject.author &&
-                  formObject.title &&
-                  formObject.description
-                )
-              }
-              onClick={handleFormSubmit}
-            >
-              Submit Bug
-            </FormBtn>
-          </form>
-        </ModalBox>
+        <div className="col-4">
+          <InProgress>
+            <BugCard bugs={inProgress} />
+          </InProgress>
+        </div>
+        <div className="col-4">
+          <Completed>
+            <BugCard bugs={completed} />
+          </Completed>
+        </div>
       </div>
+
+      <ModalBox className="row" id="newBug">
+        <form>
+          <p className="form-text">Bug Name:</p>
+          <Input
+            onChange={handleInputChange}
+            name="title"
+            placeholder="Bug Name (required)"
+            style={{
+              height: "25px",
+              width: "200px",
+            }}
+          />
+          <p className="form-text">Submitted By:</p>
+          <Input
+            onChange={handleInputChange}
+            name="author"
+            placeholder="Submitted By (required)"
+            style={{
+              height: "25px",
+              width: "200px",
+            }}
+          />
+          <p className="form-text">Bug Description:</p>
+          <TextArea
+            onChange={handleInputChange}
+            name="description"
+            placeholder="Description (required)"
+            style={{
+              height: "150px",
+              width: "300px",
+            }}
+          />
+          <FormBtn
+            style={{ cursor: "pointer", transform: "translate(220px, 0px)" }}
+            disabled={
+              !(
+                formObject.author &&
+                formObject.title &&
+                formObject.description
+              )
+            }
+            onClick={handleFormSubmit}
+          >
+            Submit Bug
+            </FormBtn>
+        </form>
+      </ModalBox>
     </div>
-  );
+  </div>
+);
 }
 
 export default Test;
