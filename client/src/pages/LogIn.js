@@ -71,9 +71,9 @@ function LogIn() {
         <button
           type="submit"
           onClick={(event) => onSubmit(event)}
-          className="signupBtn"
+          className="loginBtn"
         >
-          Sign Up
+          Log In
         </button>
       </form>
     </div>
