@@ -132,50 +132,40 @@ return (
         </div>
       </div>
 
-      <ModalBox className="row" id="newBug">
-        <form>
-          <p className="form-text">Bug Name:</p>
-          <Input
-            onChange={handleInputChange}
-            name="title"
-            placeholder="Bug Name (required)"
-            style={{
-              height: "25px",
-              width: "200px",
-            }}
-          />
-          <p className="form-text">Submitted By:</p>
-          <Input
-            onChange={handleInputChange}
-            name="author"
-            placeholder="Submitted By (required)"
-            style={{
-              height: "25px",
-              width: "200px",
-            }}
-          />
-          <p className="form-text">Bug Description:</p>
-          <TextArea
-            onChange={handleInputChange}
-            name="description"
-            placeholder="Description (required)"
-            style={{
-              height: "150px",
-              width: "300px",
-            }}
-          />
-          <FormBtn
-            style={{ cursor: "pointer", transform: "translate(220px, 0px)" }}
-            disabled={
-              !(
-                formObject.author &&
-                formObject.title &&
-                formObject.description
-              )
-            }
-            onClick={handleFormSubmit}
-          >
-            Submit Bug
+        <ModalBox className="row" id="newBug">
+          <form>
+            <p className="form-text">Bug Name:</p>
+            <Input
+              onChange={handleInputChange}
+              name="title"
+              placeholder="Bug Name (required)"
+              style={{
+                height: "25px",
+                width: "200px",
+              }}
+            />
+            <p className="form-text">Submitted By:</p>
+            <Input
+              onChange={handleInputChange}
+              name="author"
+              placeholder="Submitted By (required)"
+              style={{
+                height: "25px",
+                width: "200px",
+              }}
+            />
+            <p className="form-text">Bug Description:</p>
+            <TextArea
+              onChange={handleInputChange}
+              name="description"
+              placeholder="Description (required)"
+              style={{
+                height: "150px",
+                width: "300px",
+              }}
+            />
+            <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit}>
+              Submit Bug
             </FormBtn>
         </form>
       </ModalBox>

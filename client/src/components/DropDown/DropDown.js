@@ -5,9 +5,9 @@ function DropDown() {
   return (
     <div>
       <select name="options" className="select-css">
-        <option value="submitted">Submitted</option>
+        <option value="submitted">Bugs to Solve</option>
         <option value="in-progress">In Progress</option>
-        <option value="complete">Complete</option>
+        <option value="complete">Completed</option>
       </select>
     </div>
   );

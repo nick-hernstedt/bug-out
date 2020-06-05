@@ -1,3 +1,7 @@
+body {
+  color: #ff01ff;
+}
+
 .form-text {
   margin: 0;
   padding: 0;
@@ -5,4 +9,37 @@
   color: #ff01ff;
   font-family: "Tinos", serif;
   font-size: 20px;
+}
+
+.title {
+  font-family: "Tinos", serif;
+  text-align: center;
+}
+
+form {
+  font-family: "Tinos", serif;
+  margin: auto;
+}
+
+.signup {
+  width: 30%;
+  background: rgba(1, 19, 90, 0.8);
+  padding: 20px;
+  margin-top: 25%;
+}
+
+.signupBtn {
+  background-color: #08c9c0;
+}
+
+.loginBtn {
+  background-color: #08c9c0;
+}
+
+.pageButton {
+  background-color: transparent;
+  color: #08c9c0;
+  border: none;
+  text-decoration: underline;
+  float: right;
 }
