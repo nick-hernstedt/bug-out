@@ -134,17 +134,7 @@ function Test() {
                 width: "300px",
               }}
             />
-            <FormBtn
-              style={{ cursor: "pointer", transform: "translate(220px, 0px)" }}
-              disabled={
-                !(
-                  formObject.author &&
-                  formObject.title &&
-                  formObject.description
-                )
-              }
-              onClick={handleFormSubmit}
-            >
+            <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit}>
               Submit Bug
             </FormBtn>
           </form>
