@@ -78,9 +78,9 @@ function SignUp() {
         <button
           type="submit"
           onClick={(event) => onSubmit(event)}
-          className="signupBtn"
+          className="loginButton"
         >
-          Sign Up
+          Log In
         </button>
       </form>
     </div>
