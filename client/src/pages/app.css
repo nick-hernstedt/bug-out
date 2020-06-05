@@ -19,13 +19,13 @@ body {
 form {
   font-family: "Tinos", serif;
   margin: auto;
-  margin-top: 25%;
 }
 
 .signup {
   width: 30%;
   background: rgba(1, 19, 90, 0.8);
   padding: 20px;
+  margin-top: 25%;
 }
 
 .signupBtn {

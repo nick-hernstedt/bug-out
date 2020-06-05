@@ -75,6 +75,13 @@ function SignUp() {
         >
           Sign Up
         </button>
+        <button
+          type="submit"
+          onClick={(event) => onSubmit(event)}
+          className="signupBtn"
+        >
+          Sign Up
+        </button>
       </form>
     </div>
   );
