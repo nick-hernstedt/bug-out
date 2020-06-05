@@ -36,8 +36,8 @@ function SignUp() {
 
   return (
     <div className="container">
-      <div className="title">
-        <h1>B U G - O U T</h1>
+      <div>
+        <h1 className="title">B U G - O U T</h1>
       </div>
       <form className="signup">
         <div className="form-group">
@@ -71,7 +71,7 @@ function SignUp() {
         <button
           type="submit"
           onClick={(event) => onSubmit(event)}
-          className="btn btn-default"
+          className="signupBtn"
         >
           Sign Up
         </button>
