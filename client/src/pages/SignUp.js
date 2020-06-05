@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import axios from "axios";
 import "./app.css";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [signUp, setSignUp] = useState({
@@ -75,13 +76,12 @@ function SignUp() {
         >
           Sign Up
         </button>
-        <button
-          type="submit"
-          onClick={(event) => onSubmit(event)}
-          className="signupBtn"
+        <Link 
+          className="pageButton"
+          to="/login"
         >
-          Sign Up
-        </button>
+          Log In
+        </Link>
       </form>
     </div>
   );

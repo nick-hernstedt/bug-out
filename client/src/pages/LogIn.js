@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import axios from "axios";
 import "./app.css";
+import { Link } from "react-router-dom";
 
 function LogIn() {
   const [signUp, setSignUp] = useState({
@@ -75,6 +76,12 @@ function LogIn() {
         >
           Log In
         </button>
+        <Link 
+          className="pageButton"
+          to="/"
+        >
+          Sign Up
+        </Link>
       </form>
     </div>
   );

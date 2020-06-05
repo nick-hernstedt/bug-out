@@ -35,3 +35,11 @@ form {
 .loginBtn {
   background-color: #08c9c0;
 }
+
+.pageButton {
+  background-color: transparent;
+  color: #08c9c0;
+  border: none;
+  text-decoration: underline;
+  float: right;
+}
