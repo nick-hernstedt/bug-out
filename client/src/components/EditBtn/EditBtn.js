@@ -6,7 +6,11 @@ function EditBtn() {
     alert("Hello!");
   }
 
-  return <i onClick={editBug} className="fa fa-edit editBtn"></i>;
+  return (
+    <button className="editBtn" onClick={editBug}>
+      <i className="fa fa-edit edit"></i>
+    </button>
+  );
 }
 
 export default EditBtn;

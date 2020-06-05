@@ -18,3 +18,6 @@
   color: #ff01ff;
 }
 
+.list-group-item:hover .editBtn {
+  visibility: visible;
+}
