@@ -15,25 +15,34 @@ function SignUp() {
     setSignUp({ ...signUp, [name]: value });
   }
 
+  let token = ""
+
   function onSubmit(event) {
     event.preventDefault();
 
-    console.log(signUp.email);
+    console.log(signUp.email)
 
-    axios
-      .post("/api/users", {
-        user: {
-          email: signUp.email,
-          password: signUp.password,
-        },
-      })
-      .then(function (response) {
-        window.location.replace("/test");
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-  }
+    axios.post("/api/users", {
+      headers: { 
+        "Authorization": token, 
+        "Content-Type": "application/json"},
+      user: {
+      email: signUp.email,
+      password: signUp.password
+    }
+    }).then(function (response) {
+      console.log(response.data)
+      localStorage.setItem("data", JSON.stringify(response.data))
+      
+      localStorage.setItem("id", JSON.stringify(response.data.user._id))
+      localStorage.setItem("project", JSON.stringify(response.data.user.email))
+      localStorage.setItem("token", JSON.stringify(response.data.user.token))
+      window.location.replace("/test")
+    }).catch(function (err) {
+      alert('project name already exists')
+    })
+
+}
 
   return (
     <div className="container">

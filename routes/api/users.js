@@ -8,9 +8,9 @@ const Users = mongoose.model('Users');
 router.post('/', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
-    console.log(user)
 
-  if(!user.email) {
+
+  if (!user.email) {
     return res.status(422).json({
       errors: {
         email: 'is required',
@@ -18,7 +18,7 @@ router.post('/', auth.optional, (req, res, next) => {
     });
   }
 
-  if(!user.password) {
+  if (!user.password) {
     return res.status(422).json({
       errors: {
         password: 'is required',
@@ -29,7 +29,7 @@ router.post('/', auth.optional, (req, res, next) => {
   const finalUser = new Users(user);
 
   finalUser.setPassword(user.password);
-
+ 
   return finalUser.save()
     .then(() => res.json({ user: finalUser.toAuthJSON() }));
 });
@@ -38,7 +38,7 @@ router.post('/', auth.optional, (req, res, next) => {
 router.post('/login', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
-  if(!user.email) {
+  if (!user.email) {
     return res.status(422).json({
       errors: {
         email: 'is required',
@@ -46,7 +46,7 @@ router.post('/login', auth.optional, (req, res, next) => {
     });
   }
 
-  if(!user.password) {
+  if (!user.password) {
     return res.status(422).json({
       errors: {
         password: 'is required',
@@ -55,11 +55,11 @@ router.post('/login', auth.optional, (req, res, next) => {
   }
 
   return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
-    if(err) {
+    if (err) {
       return next(err);
     }
 
-    if(passportUser) {
+    if (passportUser) {
       const user = passportUser;
       user.token = passportUser.generateJWT();
       return res.json({ user: user.toAuthJSON() });
@@ -75,7 +75,7 @@ router.get('/current', auth.required, (req, res, next) => {
 
   return Users.findById(id)
     .then((user) => {
-      if(!user) {
+      if (!user) {
         return res.sendStatus(400);
       }
 

@@ -13,6 +13,9 @@ import BugCards from "../components/BugCards/BugCards";
 import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
 import "./app.css";
+import axios from "axios"
+
+
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -48,59 +51,86 @@ function Test() {
         .catch((err) => console.log(err));
     }
   }
+  let checker = ""
 
-  let notAssigned = [];
-  let inProgress = [];
-  let completed = [];
 
-  function main() {
-    for (let i = 1; i <= bugs.length; i++) {
-      if (bugs[i] != null) {
-        if (bugs[i].completed === true) {
-          completed.push(bugs[i]);
-          continue;
-        } else if (bugs[i].inProgress === true) {
-          inProgress.push(bugs[i]);
-          continue;
-        } else if (bugs[i].inProgress === false) {
-          notAssigned.push(bugs[i]);
-          continue;
-        }
+  function start() {
+    const data = JSON.parse(localStorage.getItem("data"))
+    console.log(data.user.token)
+    axios.get('api/users/current', {
+      headers: {
+        "Authorization": data.user.token,
+        "Content-Type": "application/json"
+      },
+    })
+      .then(function (req) {
+
+      console.log(req)
+    })
+}
+
+
+
+
+
+
+
+start()
+
+
+let notAssigned = [];
+let inProgress = [];
+let completed = [];
+// let currentUser = checker
+
+function main() {
+  for (let i = 1; i <= bugs.length; i++) {
+    if (bugs[i] != null) {
+      if (bugs[i].completed === true) {
+        completed.push(bugs[i]);
+        continue;
+      } else if (bugs[i].inProgress === true) {
+        inProgress.push(bugs[i]);
+        continue;
+      } else if (bugs[i].inProgress === false) {
+        notAssigned.push(bugs[i]);
         continue;
       }
+      continue;
     }
   }
+}
 
-  main();
+main();
 
-  return (
-    <div
-      className="row justify-content-md-center"
-      style={{
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <div className="col-8 ">
-        <Nav></Nav>
-        <UpdateModalBtn />
-        <div className="row">
-          <div className="col-4">
-            <BugBox>
-              <BugCard bugs={notAssigned} />
-            </BugBox>
-          </div>
-          <div className="col-4">
-            <InProgress>
-              <BugCard bugs={inProgress} />
-            </InProgress>
-          </div>
-          <div className="col-4">
-            <Completed>
-              <BugCard bugs={completed} />
-            </Completed>
-          </div>
+return (
+  <div
+    className="row justify-content-md-center"
+    style={{
+      width: "100%",
+      height: "100%",
+    }}
+  >
+    <div className="col-8 ">
+      <Nav></Nav>
+      <UpdateModalBtn />
+      <div className="row">
+        <div className="col-4">
+          <BugBox>
+            <BugCard bugs={notAssigned} />
+          </BugBox>
         </div>
+        <div className="col-4">
+          <InProgress>
+            <BugCard bugs={inProgress} />
+          </InProgress>
+        </div>
+        <div className="col-4">
+          <Completed>
+            <BugCard bugs={completed} />
+          </Completed>
+        </div>
+      </div>
 
         <ModalBox className="row" id="newBug">
           <form>
@@ -137,11 +167,11 @@ function Test() {
             <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit}>
               Submit Bug
             </FormBtn>
-          </form>
-        </ModalBox>
-      </div>
+        </form>
+      </ModalBox>
     </div>
-  );
+  </div>
+);
 }
 
 export default Test;
