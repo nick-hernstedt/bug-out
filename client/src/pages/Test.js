@@ -46,91 +46,98 @@ function Test() {
         title: formObject.title,
         author: formObject.author,
         description: formObject.description,
+        projectID: data.user._id
       })
         .then((res) => loadBugs())
         .catch((err) => console.log(err));
     }
   }
-  let checker = ""
+  //   let checker = ""
 
 
-  function start() {
-    const data = JSON.parse(localStorage.getItem("data"))
-    console.log(data.user.token)
-    axios.get('api/users/current', {
-      headers: {
-        "Authorization": data.user.token,
-        "Content-Type": "application/json"
-      },
-    })
-      .then(function (req) {
+  //   function start() {
+  //     const data = JSON.parse(localStorage.getItem("data"))
+  //     console.log(data.user.token)
+  //     axios.get('api/users/current', {
+  //       headers: {
+  //         "Authorization": data.user.token,
+  //         "Content-Type": "application/json"
+  //       },
+  //     })
+  //       .then(function (req) {
 
-      console.log(req)
-    })
-}
-
-
-
+  //       console.log(req)
+  //     })
+  // }
 
 
 
 
-start()
 
 
-let notAssigned = [];
-let inProgress = [];
-let completed = [];
-// let currentUser = checker
 
-function main() {
-  for (let i = 1; i <= bugs.length; i++) {
-    if (bugs[i] != null) {
-      if (bugs[i].completed === true) {
-        completed.push(bugs[i]);
-        continue;
-      } else if (bugs[i].inProgress === true) {
-        inProgress.push(bugs[i]);
-        continue;
-      } else if (bugs[i].inProgress === false) {
-        notAssigned.push(bugs[i]);
-        continue;
+  // start()
+
+  const data = JSON.parse(localStorage.getItem("data"))
+  console.log(data.user._id)
+  let notAssigned = [];
+  let inProgress = [];
+  let completed = [];
+  let projectID = []
+
+  function main() {
+    for (let i = 1; i <= bugs.length; i++) {
+      if (bugs[i] != null) {
+        console.log(bugs[i].projectID)
+        if (bugs[i].projectID === data.user._id) {
+          if (bugs[i].completed === true) {
+            completed.push(bugs[i]);
+            continue;
+          } else if (bugs[i].inProgress === true) {
+            inProgress.push(bugs[i]);
+            continue;
+          } else if (bugs[i].inProgress === false) {
+            notAssigned.push(bugs[i]);
+            continue;
+          } else if (bugs[i].projectID != projectID) {
+            continue
+          }
+          continue;
+        }
       }
-      continue;
     }
   }
-}
 
-main();
+  main();
 
-return (
-  <div
-    className="row justify-content-md-center"
-    style={{
-      width: "100%",
-      height: "100%",
-    }}
-  >
-    <div className="col-8 ">
-      <Nav></Nav>
-      <UpdateModalBtn />
-      <div className="row">
-        <div className="col-4">
-          <BugBox>
-            <BugCard bugs={notAssigned} />
-          </BugBox>
+  return (
+    <div
+      className="row justify-content-md-center"
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <div className="col-8 ">
+        <Nav></Nav>
+        <UpdateModalBtn />
+        <div className="row">
+          <div className="col-4">
+            <BugBox>
+              <BugCard bugs={notAssigned} />
+            </BugBox>
+          </div>
+          <div className="col-4">
+            <InProgress>
+              <BugCard bugs={inProgress} />
+            </InProgress>
+          </div>
+          <div className="col-4">
+            <Completed>
+              <BugCard bugs={completed} />
+            </Completed>
+          </div>
         </div>
-        <div className="col-4">
-          <InProgress>
-            <BugCard bugs={inProgress} />
-          </InProgress>
-        </div>
-        <div className="col-4">
-          <Completed>
-            <BugCard bugs={completed} />
-          </Completed>
-        </div>
-      </div>
 
         <ModalBox className="row" id="newBug">
           <form>
@@ -167,11 +174,11 @@ return (
             <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit}>
               Submit Bug
             </FormBtn>
-        </form>
-      </ModalBox>
+          </form>
+        </ModalBox>
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default Test;

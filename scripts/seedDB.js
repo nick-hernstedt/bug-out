@@ -17,7 +17,8 @@ const bugSeed = [
     assigned: "unassigned",
     inProgress: false,
     needHelp: false,
-    completed: false
+    completed: false, 
+    projectID: "5ed9ce11902357667421d581"
   },
   {
     title: "I am hungry",
@@ -28,7 +29,8 @@ const bugSeed = [
     assigned: "Kayla",
     inProgress: true,
     needHelp: false,
-    completed: false
+    completed: false, 
+    projectID: "5ed9ce11902357667421d581"
   },
   {
     title: "Nick sux",
@@ -39,7 +41,8 @@ const bugSeed = [
     assigned: "Nick",
     inProgress: true,
     needHelp: true,
-    completed: false
+    completed: false, 
+    projectID: "5ed9ce11902357667421d581"
   },
   {
     title: "I made it work to well",
@@ -50,7 +53,8 @@ const bugSeed = [
     assigned: "Anthony",
     inProgress: false,
     needHelp: false,
-    completed: true
+    completed: true, 
+    projectID: "5ed9ce11902357667421d581"
   },
   {
     title: "I'm allergic to bees",
@@ -61,7 +65,8 @@ const bugSeed = [
     assigned: "unassigned",
     inProgress: false,
     needHelp: false,
-    completed: false
+    completed: false, 
+    projectID: "5ed9ce11902357667421d581"
   }
 ];
 

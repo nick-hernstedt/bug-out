@@ -10,6 +10,7 @@ const bugSchema = new Schema({
     inProgress: { type: Boolean, default: false },
     needHelp: { type: Boolean, default: false },
     completed: { type: Boolean, default: false },
+    projectID: {type: String, required: true}
 });
 
 const Bug = mongoose.model("Bug", bugSchema);
