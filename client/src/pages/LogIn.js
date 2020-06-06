@@ -28,12 +28,22 @@ function LogIn() {
         },
       })
       .then(function (response) {
+        console.log(response)
         window.location.replace("/test");
       })
       .catch(function (err) {
         alert("incorrect password or project name");
       });
   }
+
+  function joke() {
+    axios.get("https://geek-jokes.sameerkumar.website/api?format=json")
+    .then(function (res) {
+      return localStorage.setItem("joke", res.data.joke)
+    })
+  }
+
+  joke()
 
   return (
     <div className="container">

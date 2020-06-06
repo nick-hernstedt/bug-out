@@ -15,34 +15,34 @@ function SignUp() {
     setSignUp({ ...signUp, [name]: value });
   }
 
-  let token = ""
 
   function onSubmit(event) {
     event.preventDefault();
 
-    console.log(signUp.email)
-
     axios.post("/api/users", {
-      headers: { 
-        "Authorization": token, 
-        "Content-Type": "application/json"},
       user: {
       email: signUp.email,
       password: signUp.password
     }
     }).then(function (response) {
-      console.log(response.data)
-      localStorage.setItem("data", JSON.stringify(response.data))
       
-      localStorage.setItem("id", JSON.stringify(response.data.user._id))
-      localStorage.setItem("project", JSON.stringify(response.data.user.email))
-      localStorage.setItem("token", JSON.stringify(response.data.user.token))
+      localStorage.setItem("data", JSON.stringify(response.data))
+      console.log(JSON.stringify(response.data.user))
       window.location.replace("/test")
     }).catch(function (err) {
       alert('project name already exists')
     })
 
 }
+
+function joke() {
+  axios.get("https://geek-jokes.sameerkumar.website/api?format=json")
+  .then(function (res) {
+    return localStorage.setItem("joke", res.data.joke)
+  })
+}
+
+joke()
 
   return (
     <div className="container">
