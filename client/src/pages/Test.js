@@ -52,34 +52,11 @@ function Test() {
         .catch((err) => console.log(err));
     }
   }
-  //   let checker = ""
 
 
-  //   function start() {
-  //     const data = JSON.parse(localStorage.getItem("data"))
-  //     console.log(data.user.token)
-  //     axios.get('api/users/current', {
-  //       headers: {
-  //         "Authorization": data.user.token,
-  //         "Content-Type": "application/json"
-  //       },
-  //     })
-  //       .then(function (req) {
-
-  //       console.log(req)
-  //     })
-  // }
-
-
-
-
-
-
-
-  // start()
+  
 
   const data = JSON.parse(localStorage.getItem("data"))
-  console.log(data.user._id)
   let notAssigned = [];
   let inProgress = [];
   let completed = [];
@@ -88,7 +65,6 @@ function Test() {
   function main() {
     for (let i = 1; i <= bugs.length; i++) {
       if (bugs[i] != null) {
-        console.log(bugs[i].projectID)
         if (bugs[i].projectID === data.user._id) {
           if (bugs[i].completed === true) {
             completed.push(bugs[i]);
@@ -104,7 +80,7 @@ function Test() {
           }
           continue;
         }
-      }
+      } continue
     }
   }
 
@@ -120,7 +96,10 @@ function Test() {
     >
       <div className="col-8 ">
         <Nav></Nav>
+
+
         <UpdateModalBtn />
+
         <div className="row">
           <div className="col-4">
             <BugBox>
@@ -176,6 +155,7 @@ function Test() {
             </FormBtn>
           </form>
         </ModalBox>
+        <h1>{localStorage.getItem("joke")}</h1>
       </div>
     </div>
   );
