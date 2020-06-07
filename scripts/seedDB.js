@@ -18,7 +18,7 @@ const bugSeed = [
     inProgress: false,
     needHelp: false,
     completed: false, 
-    projectID: "5ed9ce11902357667421d581"
+    projectID: "5edc0fcd85f97f36ccabacb4"
   },
   {
     title: "I am hungry",
@@ -30,7 +30,7 @@ const bugSeed = [
     inProgress: true,
     needHelp: false,
     completed: false, 
-    projectID: "5ed9ce11902357667421d581"
+    projectID: "5edc0fcd85f97f36ccabacb4"
   },
   {
     title: "Nick sux",
@@ -42,7 +42,7 @@ const bugSeed = [
     inProgress: true,
     needHelp: true,
     completed: false, 
-    projectID: "5ed9ce11902357667421d581"
+    projectID: "5edc0fcd85f97f36ccabacb4"
   },
   {
     title: "I made it work to well",
@@ -54,7 +54,7 @@ const bugSeed = [
     inProgress: false,
     needHelp: false,
     completed: true, 
-    projectID: "5ed9ce11902357667421d581"
+    projectID: "5edc0fcd85f97f36ccabacb4"
   },
   {
     title: "I'm allergic to bees",
@@ -66,7 +66,7 @@ const bugSeed = [
     inProgress: false,
     needHelp: false,
     completed: false, 
-    projectID: "5ed9ce11902357667421d581"
+    projectID: "5edc0fcd85f97f36ccabacb4"
   }
 ];
 

@@ -7,7 +7,7 @@ function InProgress({ children }) {
             <div>
                 <h4 className="header">In Progress</h4>
             </div>
-            <div>{children}</div>
+            <div id="second">{children}</div>
         </div>
     )
 }

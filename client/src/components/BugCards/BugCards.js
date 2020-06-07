@@ -6,10 +6,10 @@ import "./BugCards.css";
 import "./style.css";
 
 function BugCards(props) {
-  // Setting our component's initial state
+
 
   return (
-    <div>
+    <>
       <List>
         {props.bugs.map((bug) => (
           <ListItem key={bug._id}>
@@ -19,7 +19,7 @@ function BugCards(props) {
           </ListItem>
         ))}
       </List>
-    </div>
+    </>
   );
 }
 

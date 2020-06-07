@@ -7,7 +7,7 @@ function Completed({children})  {
       <div>
         <h4 className="header">Completed</h4>
       </div>
-      <div>{children}</div>
+      <div id="third">{children}</div>
     </div>
     )
 } 

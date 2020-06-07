@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import BugBox from "../components/BugBox/BugBox";
 import Nav from "../components/Nav/Nav";
 import InProgress from "../components/InProgress/InProgress";
 import Completed from "../components/Completed/Completed";
-import NeedHelp from "../components/NeedHelp/NeedHelp";
+// import NeedHelp from "../components/NeedHelp/NeedHelp";
 import BugCard from "../components/BugCards/BugCards";
 import ModalBox from "../components/ModalBox/ModalBox";
-import BugName from "../components/BugName/BugName";
+// import BugName from "../components/BugName/BugName";
 import API from "../utils/API";
-import Image from "../assets/images/1iwcit1gidyy.jpg";
-import BugCards from "../components/BugCards/BugCards";
+// import Image from "../assets/images/1iwcit1gidyy.jpg";
+// import BugCards from "../components/BugCards/BugCards";
 import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
+import "./dragula.css";
 import "./app.css";
-import axios from "axios"
-
-
+// import axios from "axios"
+import dragula from "react-dragula";
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -23,6 +24,16 @@ function Test() {
 
   useEffect(() => {
     loadBugs();
+    var first = "#first";
+    var second = "#second";
+    var third = "#third";
+
+    var containers = [
+      document.querySelector(first),
+      document.querySelector(second),
+      document.querySelector(third),
+    ];
+    dragula({ containers: containers });
   }, []);
 
   function loadBugs() {
@@ -46,21 +57,18 @@ function Test() {
         title: formObject.title,
         author: formObject.author,
         description: formObject.description,
-        projectID: data.user._id
+        projectID: data.user._id,
       })
         .then((res) => loadBugs())
         .catch((err) => console.log(err));
     }
   }
 
-
-  
-
-  const data = JSON.parse(localStorage.getItem("data"))
+  const data = JSON.parse(localStorage.getItem("data"));
   let notAssigned = [];
   let inProgress = [];
   let completed = [];
-  let projectID = []
+  let projectID = [];
 
   function main() {
     for (let i = 1; i <= bugs.length; i++) {
@@ -75,12 +83,13 @@ function Test() {
           } else if (bugs[i].inProgress === false) {
             notAssigned.push(bugs[i]);
             continue;
-          } else if (bugs[i].projectID != projectID) {
-            continue
+          } else if (bugs[i].projectID !== projectID) {
+            continue;
           }
           continue;
         }
-      } continue
+      }
+      continue;
     }
   }
 
@@ -96,7 +105,6 @@ function Test() {
     >
       <div className="col-8 ">
         <Nav></Nav>
-
 
         <UpdateModalBtn />
 
@@ -157,6 +165,15 @@ function Test() {
         </ModalBox>
         <h1>{localStorage.getItem("joke")}</h1>
       </div>
+      {/* <ul id="first">
+        <li>fck</li>
+      </ul>
+      <ul id="second">
+        <li>fck</li>
+      </ul>
+      <ul id="third">
+        <li>fck</li>
+      </ul> */}
     </div>
   );
 }
