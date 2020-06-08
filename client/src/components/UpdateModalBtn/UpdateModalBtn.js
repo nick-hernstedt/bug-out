@@ -1,10 +1,12 @@
 import React from "react";
 import "./UpdateModalBtn.css";
 
-function UpdateModalBtn() {
+function UpdateModalBtn(props) {
   return (
     <div>
-      <button type="button">New Bug</button>
+      <button type="button" onClick={props.wasd}>
+        New Bug
+      </button>
     </div>
   );
 }

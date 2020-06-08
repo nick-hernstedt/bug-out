@@ -21,6 +21,7 @@ function Test() {
   const [modalState, setModalState] = useState({});
 
   useEffect(() => {
+    setModalState("hide");
     loadBugs();
   }, []);
 
@@ -86,10 +87,11 @@ function Test() {
   function toggleModal(event) {
     event.preventDefault();
     if (modalState === "hide") {
-      setModalState = "show";
+      setModalState("show");
     } else {
-      setModalState = "hide";
+      setModalState("hide");
     }
+    console.log(modalState);
   }
 
   return (
@@ -103,7 +105,7 @@ function Test() {
       <div className="col-8 ">
         <Nav></Nav>
 
-        <UpdateModalBtn />
+        <UpdateModalBtn wasd={toggleModal} />
 
         <div className="row">
           <div className="col-4">
@@ -123,7 +125,15 @@ function Test() {
           </div>
         </div>
 
-        <ModalBox className="row" id="newBug">
+        <ModalBox
+          className={"row"}
+          style={
+            modalState === "hide"
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
+          id="newBug"
+        >
           <form>
             <p className="form-text">Bug Name:</p>
             <Input
