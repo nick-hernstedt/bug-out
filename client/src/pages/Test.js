@@ -125,15 +125,7 @@ function Test() {
           </div>
         </div>
 
-        <ModalBox
-          className={"row"}
-          style={
-            modalState === "hide"
-              ? { visibility: "hidden" }
-              : { visibility: "visible" }
-          }
-          id="newBug"
-        >
+        <ModalBox modalState={modalState} className="row" id="newBug">
           <form>
             <p className="form-text">Bug Name:</p>
             <Input

@@ -11,12 +11,11 @@ import SubmitBtn from "../SubmitBtn/SubmitBtn";
 import CloseButton from "../CloseButton/CloseButton";
 
 function ModalBox(props) {
-  style = {};
   return (
     <div
       className="row"
       style={
-        modalState === "hide"
+        props.modalState === "hide"
           ? {
               visibility: "hidden",
               width: "600px",
