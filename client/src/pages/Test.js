@@ -13,13 +13,12 @@ import BugCards from "../components/BugCards/BugCards";
 import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
 import "./app.css";
-import axios from "axios"
-
-
+import axios from "axios";
 
 function Test() {
   const [bugs, setBugs] = useState([]);
   const [formObject, setFormObject] = useState({});
+  const [modalState, setModalState] = useState({});
 
   useEffect(() => {
     loadBugs();
@@ -46,21 +45,18 @@ function Test() {
         title: formObject.title,
         author: formObject.author,
         description: formObject.description,
-        projectID: data.user._id
+        projectID: data.user._id,
       })
         .then((res) => loadBugs())
         .catch((err) => console.log(err));
     }
   }
 
-
-  
-
-  const data = JSON.parse(localStorage.getItem("data"))
+  const data = JSON.parse(localStorage.getItem("data"));
   let notAssigned = [];
   let inProgress = [];
   let completed = [];
-  let projectID = []
+  let projectID = [];
 
   function main() {
     for (let i = 1; i <= bugs.length; i++) {
@@ -76,15 +72,25 @@ function Test() {
             notAssigned.push(bugs[i]);
             continue;
           } else if (bugs[i].projectID != projectID) {
-            continue
+            continue;
           }
           continue;
         }
-      } continue
+      }
+      continue;
     }
   }
 
   main();
+
+  function toggleModal(event) {
+    event.preventDefault();
+    if (modalState === "hide") {
+      setModalState = "show";
+    } else {
+      setModalState = "hide";
+    }
+  }
 
   return (
     <div
@@ -96,7 +102,6 @@ function Test() {
     >
       <div className="col-8 ">
         <Nav></Nav>
-
 
         <UpdateModalBtn />
 

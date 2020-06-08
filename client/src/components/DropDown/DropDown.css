@@ -13,7 +13,7 @@
   font-family: "Tinos", serif;
   font-weight: 400;
   color: black;
-  line-height: 0.75;
+  line-height: 1;
   padding: 0.6em 1.4em 0.5em 0.8em;
   width: 80%;
   max-width: 100%; /* useful when width is set to anything other than 100% */
