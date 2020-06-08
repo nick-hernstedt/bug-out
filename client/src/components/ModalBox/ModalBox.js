@@ -12,32 +12,7 @@ import CloseButton from "../CloseButton/CloseButton";
 
 function ModalBox(props) {
   return (
-    <div
-      className="row"
-      style={
-        props.modalState === "hide"
-          ? {
-              visibility: "hidden",
-              width: "600px",
-              margin: "auto",
-              height: "350px",
-              backgroundColor: "#01135a",
-              padding: "10px",
-              boxShadow: "0px 0px 60px 30px #08C9C0",
-              zIndex: "-1",
-            }
-          : {
-              visibility: "visible",
-              width: "600px",
-              margin: "auto",
-              height: "350px",
-              backgroundColor: "#01135a",
-              padding: "10px",
-              boxShadow: "0px 0px 60px 30px #08C9C0",
-              zIndex: "-1",
-            }
-      }
-    >
+    <div className={props.modalState === "hide" ? "hide row" : "show row"}>
       <div className="col-7">{props.children}</div>
       <div className="col-5">
         <CloseButton />
