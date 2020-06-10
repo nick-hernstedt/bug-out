@@ -16,7 +16,7 @@ function ModalBox(props) {
       <div className="col-7">{props.children}</div>
       <div className="col-5">
         <CloseButton close={props.close} />
-
+        
         <DateMade />
         <NeedHelp />
         <DropDown />

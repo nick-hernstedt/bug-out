@@ -42,7 +42,7 @@ function Test() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-
+    
     if (formObject.author && formObject.title && formObject.description) {
       API.saveBug({
         title: formObject.title,
@@ -53,6 +53,9 @@ function Test() {
         .then((res) => loadBugs())
         .catch((err) => console.log(err));
     }
+
+      toggleModal()
+
   }
 
   const data = JSON.parse(localStorage.getItem("data"));
@@ -87,7 +90,6 @@ function Test() {
   main();
 
   function toggleModal(event) {
-    event.preventDefault();
     if (modalState === "hide") {
       setModalState("show");
     } else {
@@ -163,7 +165,7 @@ function Test() {
                 width: "300px",
               }}
             />
-            <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit}>
+            <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit} >
               Submit Bug
             </FormBtn>
           </form>
