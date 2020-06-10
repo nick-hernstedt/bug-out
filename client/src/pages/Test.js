@@ -3,19 +3,20 @@ import BugBox from "../components/BugBox/BugBox";
 import Nav from "../components/Nav/Nav";
 import InProgress from "../components/InProgress/InProgress";
 import Completed from "../components/Completed/Completed";
-import NeedHelp from "../components/NeedHelp/NeedHelp";
+// import NeedHelp from "../components/NeedHelp/NeedHelp";
 import BugCard from "../components/BugCards/BugCards";
 import ModalBox from "../components/ModalBox/ModalBox";
-import BugName from "../components/BugName/BugName";
+// import BugName from "../components/BugName/BugName";
 import API from "../utils/API";
-import Image from "../assets/images/1iwcit1gidyy.jpg";
-import BugCards from "../components/BugCards/BugCards";
+// import Image from "../assets/images/1iwcit1gidyy.jpg";
+// import BugCards from "../components/BugCards/BugCards";
 import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
+import "./dragula.css";
 import "./app.css";
+import dragula from "react-dragula";
 import axios from "axios";
 import SubmitModal from "../components/SubmitModal/SubmitModal";
-
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -25,6 +26,16 @@ function Test() {
   useEffect(() => {
     setModalState("hide");
     loadBugs();
+    var first = "#first";
+    var second = "#second";
+    var third = "#third";
+
+    var containers = [
+      document.querySelector(first),
+      document.querySelector(second),
+      document.querySelector(third),
+    ];
+    dragula({ containers: containers });
   }, []);
 
   function loadBugs() {
@@ -77,7 +88,7 @@ function Test() {
           } else if (bugs[i].inProgress === false) {
             notAssigned.push(bugs[i]);
             continue;
-          } else if (bugs[i].projectID != projectID) {
+          } else if (bugs[i].projectID !== projectID) {
             continue;
           }
           continue;
@@ -118,17 +129,17 @@ function Test() {
         <div className="row">
           <div className="col-4">
             <BugBox>
-              <BugCard bugs={notAssigned} />
+              <BugCard bugs={notAssigned} id="first" />
             </BugBox>
           </div>
           <div className="col-4">
             <InProgress>
-              <BugCard bugs={inProgress} />
+              <BugCard bugs={inProgress} id="second" />
             </InProgress>
           </div>
           <div className="col-4">
             <Completed>
-              <BugCard bugs={completed} />
+              <BugCard bugs={completed} id="third" />
             </Completed>
           </div>
         </div>
