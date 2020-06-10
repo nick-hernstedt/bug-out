@@ -157,7 +157,11 @@ function Test() {
                 width: "300px",
               }}
             />
-            <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit}>
+            <FormBtn
+              style={{ cursor: "pointer" }}
+              className="submitBtn"
+              onClick={handleFormSubmit}
+            >
               Submit Bug
             </FormBtn>
           </form>

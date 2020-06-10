@@ -21,24 +21,35 @@ form {
   margin: auto;
 }
 
+.form {
+  border-radius: 0px;
+}
+
 .signup {
-  width: 30%;
+  width: 25%;
   background: rgba(1, 19, 90, 0.8);
   padding: 20px;
   margin-top: 25%;
 }
 
+.formLabel {
+  font-size: 16px;
+}
+
 .signupBtn {
   background-color: #08c9c0;
+  font-size: 16px;
 }
 
 .loginBtn {
   background-color: #08c9c0;
+  font-size: 16px;
 }
 
 .pageButton {
   background-color: transparent;
   color: #08c9c0;
+  font-size: 16px;
   border: none;
   text-decoration: underline;
   float: right;

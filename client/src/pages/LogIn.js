@@ -28,7 +28,7 @@ function LogIn() {
         },
       })
       .then(function (response) {
-        console.log(response)
+        console.log(response);
         window.location.replace("/test");
       })
       .catch(function (err) {
@@ -37,13 +37,14 @@ function LogIn() {
   }
 
   function joke() {
-    axios.get("https://geek-jokes.sameerkumar.website/api?format=json")
-    .then(function (res) {
-      return localStorage.setItem("joke", res.data.joke)
-    })
+    axios
+      .get("https://geek-jokes.sameerkumar.website/api?format=json")
+      .then(function (res) {
+        return localStorage.setItem("joke", res.data.joke);
+      });
   }
 
-  joke()
+  joke();
 
   return (
     <div className="container">
@@ -52,20 +53,24 @@ function LogIn() {
       </div>
       <form className="signup">
         <div className="form-group">
-          <label for="exampleInputEmail1">Project name:</label>
+          <label for="exampleInputEmail1" class="formLabel">
+            Project name:
+          </label>
           <input
-            className="form-control"
+            className="form-control form"
             id="email-input"
             placeholder="Project Name"
             name="email"
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
-          <label for="exampleInputPassword1">Password:</label>
+        <div className="form-group form">
+          <label for="exampleInputPassword1" class="formLabel">
+            Password:
+          </label>
           <input
             type="password"
-            className="form-control"
+            className="form-control form"
             id="password-input"
             placeholder="Password"
             name="password"
@@ -86,10 +91,7 @@ function LogIn() {
         >
           Log In
         </button>
-        <Link 
-          className="pageButton"
-          to="/"
-        >
+        <Link className="pageButton" to="/">
           Sign Up
         </Link>
       </form>
