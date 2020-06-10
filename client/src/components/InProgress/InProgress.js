@@ -1,15 +1,13 @@
-import React from "react"
-import "./style.css"
+import React from "react";
+import "./style.css";
 
 function InProgress({ children }) {
-    return (
-        <div>
-            <div>
-                <h4 className="header">In Progress</h4>
-            </div>
-            <div id="second">{children}</div>
-        </div>
-    )
+  return (
+    <div>
+      <h4 className="header">In Progress</h4>
+      <div>{children}</div>
+    </div>
+  );
 }
 
-export default InProgress
+export default InProgress;

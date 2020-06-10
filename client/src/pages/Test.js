@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 import BugBox from "../components/BugBox/BugBox";
 import Nav from "../components/Nav/Nav";
 import InProgress from "../components/InProgress/InProgress";
@@ -111,17 +110,17 @@ function Test() {
         <div className="row">
           <div className="col-4">
             <BugBox>
-              <BugCard bugs={notAssigned} />
+              <BugCard bugs={notAssigned} id="first" />
             </BugBox>
           </div>
           <div className="col-4">
             <InProgress>
-              <BugCard bugs={inProgress} />
+              <BugCard bugs={inProgress} id="second" />
             </InProgress>
           </div>
           <div className="col-4">
             <Completed>
-              <BugCard bugs={completed} />
+              <BugCard bugs={completed} id="third" />
             </Completed>
           </div>
         </div>
@@ -165,15 +164,6 @@ function Test() {
         </ModalBox>
         <h1>{localStorage.getItem("joke")}</h1>
       </div>
-      {/* <ul id="first">
-        <li>fck</li>
-      </ul>
-      <ul id="second">
-        <li>fck</li>
-      </ul>
-      <ul id="third">
-        <li>fck</li>
-      </ul> */}
     </div>
   );
 }
