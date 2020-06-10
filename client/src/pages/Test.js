@@ -132,6 +132,7 @@ function Test() {
               onChange={handleInputChange}
               name="title"
               placeholder="Bug Name (required)"
+              className="form"
               style={{
                 height: "25px",
                 width: "200px",
@@ -142,6 +143,7 @@ function Test() {
               onChange={handleInputChange}
               name="author"
               placeholder="Submitted By (required)"
+              className="form"
               style={{
                 height: "25px",
                 width: "200px",
@@ -152,6 +154,7 @@ function Test() {
               onChange={handleInputChange}
               name="description"
               placeholder="Description (required)"
+              className="form"
               style={{
                 height: "150px",
                 width: "300px",
