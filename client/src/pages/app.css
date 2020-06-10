@@ -55,3 +55,9 @@ form {
   text-decoration: underline;
   float: right;
 }
+
+.joke {
+  transform: translate(1180px, -580px);
+  font-family: "Tinos", serif;
+  width: 30%;
+}

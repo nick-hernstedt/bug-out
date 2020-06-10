@@ -169,7 +169,7 @@ function Test() {
             </FormBtn>
           </form>
         </ModalBox>
-        <h1>{localStorage.getItem("joke")}</h1>
+        <h5 class="joke">{localStorage.getItem("joke")}</h5>
       </div>
     </div>
   );
