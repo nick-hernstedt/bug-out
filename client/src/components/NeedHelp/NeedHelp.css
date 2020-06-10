@@ -12,3 +12,8 @@
 #help:hover {
   color: #f8bd10;
 }
+
+#help {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
