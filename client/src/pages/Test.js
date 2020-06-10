@@ -14,6 +14,8 @@ import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
 import "./app.css";
 import axios from "axios";
+import SubmitModal from "../components/SubmitModal/SubmitModal";
+
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -40,7 +42,7 @@ function Test() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-
+    
     if (formObject.author && formObject.title && formObject.description) {
       API.saveBug({
         title: formObject.title,
@@ -51,6 +53,9 @@ function Test() {
         .then((res) => loadBugs())
         .catch((err) => console.log(err));
     }
+
+      toggleModal()
+
   }
 
   const data = JSON.parse(localStorage.getItem("data"));
@@ -85,7 +90,6 @@ function Test() {
   main();
 
   function toggleModal(event) {
-    event.preventDefault();
     if (modalState === "hide") {
       setModalState("show");
     } else {
@@ -93,6 +97,9 @@ function Test() {
     }
     console.log(modalState);
   }
+
+  
+
 
   return (
     <div
@@ -106,6 +113,7 @@ function Test() {
         <Nav></Nav>
 
         <UpdateModalBtn wasd={toggleModal} />
+
 
         <div className="row">
           <div className="col-4">
@@ -125,7 +133,7 @@ function Test() {
           </div>
         </div>
 
-        <ModalBox modalState={modalState} className="row" id="newBug">
+        <ModalBox modalState={modalState} close={toggleModal} className="row" id="newBug">
           <form>
             <p className="form-text">Bug Name:</p>
             <Input
@@ -160,11 +168,13 @@ function Test() {
                 width: "300px",
               }}
             />
+
             <FormBtn
               style={{ cursor: "pointer" }}
               className="submitBtn"
               onClick={handleFormSubmit}
             >
+
               Submit Bug
             </FormBtn>
           </form>

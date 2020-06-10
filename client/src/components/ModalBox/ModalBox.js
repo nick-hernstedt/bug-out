@@ -15,8 +15,8 @@ function ModalBox(props) {
     <div className={props.modalState === "hide" ? "hide row" : "show row"}>
       <div className="col-7">{props.children}</div>
       <div className="col-5">
-        <CloseButton />
-
+        <CloseButton close={props.close} />
+        
         <DateMade />
         <NeedHelp />
         <DropDown />
