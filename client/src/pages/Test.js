@@ -53,7 +53,7 @@ function Test() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    
+
     if (formObject.author && formObject.title && formObject.description) {
       API.saveBug({
         title: formObject.title,
@@ -61,11 +61,14 @@ function Test() {
         description: formObject.description,
         projectID: data.user._id,
       })
-        .then((res) => loadBugs())
+        .then((res) => {
+          loadBugs()
+          toggleModal()
+        })
         .catch((err) => console.log(err));
-    }
+    } else alert("Please fill out all inputs")
 
-      toggleModal()
+    
 
   }
 
@@ -109,7 +112,7 @@ function Test() {
     console.log(modalState);
   }
 
-  
+
 
 
   return (
