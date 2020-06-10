@@ -14,14 +14,17 @@ import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
 import "./dragula.css";
 import "./app.css";
-// import axios from "axios"
 import dragula from "react-dragula";
+import axios from "axios";
+import SubmitModal from "../components/SubmitModal/SubmitModal";
 
 function Test() {
   const [bugs, setBugs] = useState([]);
   const [formObject, setFormObject] = useState({});
+  const [modalState, setModalState] = useState({});
 
   useEffect(() => {
+    setModalState("hide");
     loadBugs();
     var first = "#first";
     var second = "#second";
@@ -50,7 +53,7 @@ function Test() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-
+    
     if (formObject.author && formObject.title && formObject.description) {
       API.saveBug({
         title: formObject.title,
@@ -61,6 +64,9 @@ function Test() {
         .then((res) => loadBugs())
         .catch((err) => console.log(err));
     }
+
+      toggleModal()
+
   }
 
   const data = JSON.parse(localStorage.getItem("data"));
@@ -94,6 +100,18 @@ function Test() {
 
   main();
 
+  function toggleModal(event) {
+    if (modalState === "hide") {
+      setModalState("show");
+    } else {
+      setModalState("hide");
+    }
+    console.log(modalState);
+  }
+
+  
+
+
   return (
     <div
       className="row justify-content-md-center"
@@ -105,7 +123,8 @@ function Test() {
       <div className="col-8 ">
         <Nav></Nav>
 
-        <UpdateModalBtn />
+        <UpdateModalBtn wasd={toggleModal} />
+
 
         <div className="row">
           <div className="col-4">
@@ -125,13 +144,14 @@ function Test() {
           </div>
         </div>
 
-        <ModalBox className="row" id="newBug">
+        <ModalBox modalState={modalState} close={toggleModal} className="row" id="newBug">
           <form>
             <p className="form-text">Bug Name:</p>
             <Input
               onChange={handleInputChange}
               name="title"
               placeholder="Bug Name (required)"
+              className="form"
               style={{
                 height: "25px",
                 width: "200px",
@@ -142,6 +162,7 @@ function Test() {
               onChange={handleInputChange}
               name="author"
               placeholder="Submitted By (required)"
+              className="form"
               style={{
                 height: "25px",
                 width: "200px",
@@ -152,17 +173,24 @@ function Test() {
               onChange={handleInputChange}
               name="description"
               placeholder="Description (required)"
+              className="form"
               style={{
                 height: "150px",
                 width: "300px",
               }}
             />
-            <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit}>
+
+            <FormBtn
+              style={{ cursor: "pointer" }}
+              className="submitBtn"
+              onClick={handleFormSubmit}
+            >
+
               Submit Bug
             </FormBtn>
           </form>
         </ModalBox>
-        <h1>{localStorage.getItem("joke")}</h1>
+        <h5 class="joke">{localStorage.getItem("joke")}</h5>
       </div>
     </div>
   );

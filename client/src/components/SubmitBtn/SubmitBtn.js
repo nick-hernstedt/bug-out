@@ -1,9 +1,10 @@
 import React from "react";
 import "./SubmitBtn.css";
+import { PromiseProvider } from "mongoose";
 
-function SubmitBtn() {
+function SubmitBtn(props) {
   return (
-    <button type="button" className="submitBtn">
+    <button onClick={props.close} type="button" className="submitBtn">
       Submit
     </button>
   );
