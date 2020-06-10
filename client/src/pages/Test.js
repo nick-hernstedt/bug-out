@@ -53,22 +53,21 @@ function Test() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-
     if (formObject.author && formObject.title && formObject.description) {
+
       API.saveBug({
         title: formObject.title,
         author: formObject.author,
         description: formObject.description,
         projectID: data.user._id,
       })
-        .then((res) => {
-          loadBugs()
-          toggleModal()
-        })
+        .then(res => loadBugs())
         .catch((err) => console.log(err));
     } else alert("Please fill out all inputs")
 
-    
+    toggleModal()
+
+
 
   }
 
@@ -79,7 +78,7 @@ function Test() {
   let projectID = [];
 
   function main() {
-    for (let i = 1; i <= bugs.length; i++) {
+    for (let i = 0; i <= bugs.length; i++) {
       if (bugs[i] != null) {
         if (bugs[i].projectID === data.user._id) {
           if (bugs[i].completed === true) {
