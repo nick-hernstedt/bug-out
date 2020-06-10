@@ -14,6 +14,8 @@ import UpdateModalBtn from "../components/UpdateModalBtn/UpdateModalBtn";
 import { Input, TextArea, FormBtn } from "../components/Form/Form";
 import "./app.css";
 import axios from "axios";
+import SubmitModal from "../components/SubmitModal/SubmitModal";
+
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -94,6 +96,9 @@ function Test() {
     console.log(modalState);
   }
 
+  
+
+
   return (
     <div
       className="row justify-content-md-center"
@@ -106,6 +111,7 @@ function Test() {
         <Nav></Nav>
 
         <UpdateModalBtn wasd={toggleModal} />
+
 
         <div className="row">
           <div className="col-4">
@@ -125,7 +131,7 @@ function Test() {
           </div>
         </div>
 
-        <ModalBox modalState={modalState} className="row" id="newBug">
+        <ModalBox modalState={modalState} close={toggleModal} className="row" id="newBug">
           <form>
             <p className="form-text">Bug Name:</p>
             <Input

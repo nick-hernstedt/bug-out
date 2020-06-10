@@ -1,12 +1,11 @@
 import React from "react";
 import "./CloseButton.css";
+import { PromiseProvider } from "mongoose";
 
-function CloseButton() {
-  function closeModal() {
-    alert("Hello!");
-  }
+function CloseButton(props) {
 
-  return <i onClick={closeModal} className="fa fa-window-close closeBtn"></i>;
+
+  return <i onClick={props.close} className="fa fa-window-close closeBtn"></i>;
 }
 
 export default CloseButton;
