@@ -15,34 +15,35 @@ function SignUp() {
     setSignUp({ ...signUp, [name]: value });
   }
 
-
   function onSubmit(event) {
     event.preventDefault();
 
-    axios.post("/api/users", {
-      user: {
-      email: signUp.email,
-      password: signUp.password
-    }
-    }).then(function (response) {
-      
-      localStorage.setItem("data", JSON.stringify(response.data))
-      console.log(JSON.stringify(response.data.user))
-      window.location.replace("/test")
-    }).catch(function (err) {
-      alert('project name already exists')
-    })
+    axios
+      .post("/api/users", {
+        user: {
+          email: signUp.email,
+          password: signUp.password,
+        },
+      })
+      .then(function (response) {
+        localStorage.setItem("data", JSON.stringify(response.data));
+        console.log(JSON.stringify(response.data.user));
+        window.location.replace("/test");
+      })
+      .catch(function (err) {
+        alert("project name already exists");
+      });
+  }
 
-}
+  function joke() {
+    axios
+      .get("https://geek-jokes.sameerkumar.website/api?format=json")
+      .then(function (res) {
+        return localStorage.setItem("joke", res.data.joke);
+      });
+  }
 
-function joke() {
-  axios.get("https://geek-jokes.sameerkumar.website/api?format=json")
-  .then(function (res) {
-    return localStorage.setItem("joke", res.data.joke)
-  })
-}
-
-joke()
+  joke();
 
   return (
     <div className="container">
@@ -51,9 +52,11 @@ joke()
       </div>
       <form className="signup">
         <div className="form-group">
-          <label for="exampleInputEmail1">Project name:</label>
+          <label for="exampleInputEmail1" class="formLabel">
+            Project name:
+          </label>
           <input
-            className="form-control"
+            className="form-control form"
             id="email-input"
             placeholder="Project Name"
             name="email"
@@ -61,10 +64,12 @@ joke()
           />
         </div>
         <div className="form-group">
-          <label for="exampleInputPassword1">Password:</label>
+          <label for="exampleInputPassword1" class="formLabel">
+            Password:
+          </label>
           <input
             type="password"
-            className="form-control"
+            className="form-control form"
             id="password-input"
             placeholder="Password"
             name="password"
@@ -85,10 +90,7 @@ joke()
         >
           Sign Up
         </button>
-        <Link 
-          className="pageButton"
-          to="/login"
-        >
+        <Link className="pageButton" to="/login">
           Log In
         </Link>
       </form>

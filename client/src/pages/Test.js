@@ -140,6 +140,7 @@ function Test() {
               onChange={handleInputChange}
               name="title"
               placeholder="Bug Name (required)"
+              className="form"
               style={{
                 height: "25px",
                 width: "200px",
@@ -150,6 +151,7 @@ function Test() {
               onChange={handleInputChange}
               name="author"
               placeholder="Submitted By (required)"
+              className="form"
               style={{
                 height: "25px",
                 width: "200px",
@@ -160,17 +162,24 @@ function Test() {
               onChange={handleInputChange}
               name="description"
               placeholder="Description (required)"
+              className="form"
               style={{
                 height: "150px",
                 width: "300px",
               }}
             />
-            <FormBtn style={{ cursor: "pointer" }} onClick={handleFormSubmit} >
+
+            <FormBtn
+              style={{ cursor: "pointer" }}
+              className="submitBtn"
+              onClick={handleFormSubmit}
+            >
+
               Submit Bug
             </FormBtn>
           </form>
         </ModalBox>
-        <h1>{localStorage.getItem("joke")}</h1>
+        <h5 class="joke">{localStorage.getItem("joke")}</h5>
       </div>
     </div>
   );
