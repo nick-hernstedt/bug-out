@@ -38,7 +38,29 @@ function Test() {
       document.querySelector(second),
       document.querySelector(third),
     ];
-    dragula({ containers: containers });
+    // dragula({ containers: containers });
+    var drake = dragula(containers)
+    drake.on('drop', (el, target) => {
+      console.log(el.id)
+      if(target === document.querySelector(first)) {
+        API.updateBug(el.id, {
+          inProgress: false,
+          completed: false
+        })
+      } else if (target === document.querySelector(second)) {
+        API.updateBug(el.id, {
+          inProgress: true,
+          completed: false
+        }).then(res => {
+          console.log(res.data)
+        })
+      } else if (target === document.querySelector(third)) {
+        API.updateBug(el.id, {
+          inProgress: false,
+          completed: true
+        })
+      }
+    })
   }, []);
 
   function loadBugs() {
@@ -150,7 +172,9 @@ function Test() {
       }}
     >
       <div className="col-8 ">
-        <Nav></Nav>
+        <Nav>
+        </Nav>
+        
 
         <UpdateModalBtn wasd={toggleSubmitModal} />
 
@@ -286,7 +310,7 @@ function Test() {
           </form>
         </ModalBox>
 
-        <h5 class="joke">{localStorage.getItem("joke")}</h5>
+
       </div>
     </div>
   );

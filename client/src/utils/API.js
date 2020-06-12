@@ -23,7 +23,9 @@ export default {
     return axios.post("/api/", bugData);
   },
 
-  updateBug: function (id) {
-    return axios.put("/api" + id);
+  updateBug: function (id, bugdata) {
+    console.log("Anthony's mom's chicken pickata");
+    return axios.put("/api/bugs/" + id, bugdata);
+
   },
 };
