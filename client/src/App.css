@@ -19,12 +19,17 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-html body{
+html body {
   background-image: url(./assets/images/1iwcit1gidyy.jpg);
   background-size: cover;
+  height: 100%;
   overflow: auto;
 }
