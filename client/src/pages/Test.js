@@ -40,14 +40,11 @@ function Test() {
     drake.on('drop', (el, target) => {
       console.log(el.id)
       if(target === document.querySelector(first)) {
-        console.log("hello")
         API.updateBug(el.id, {
           inProgress: false,
           completed: false
         })
       } else if (target === document.querySelector(second)) {
-        console.log("adf")
-
         API.updateBug(el.id, {
           inProgress: true,
           completed: false
@@ -55,8 +52,6 @@ function Test() {
           console.log(res.data)
         })
       } else if (target === document.querySelector(third)) {
-        console.log("thid")
-
         API.updateBug(el.id, {
           inProgress: false,
           completed: true

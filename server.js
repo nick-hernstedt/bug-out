@@ -37,22 +37,22 @@ mongoose.connect(
 
 require("./models/Users");
 require("./config/passport");
-app.use(require("./routes"));
+// app.use(require("./routes"));
 
 // Define any API routes before this runs
 app
-  .route("/api/")
+  .route("/api")
   .get(bugsController.findAll)
   .post((req, res) => {
     bugsController.create(req, res);
   });
 
 app
-  .route("/api/:id")
+  .route("/api/bugs/:id")
   .get(bugsController.findById)
-  .put(() => {
-    console.log("something")
-    bugsController.update();
+  .put((req, res) => {
+    console.log("something");
+    bugsController.update(req, res);
   })
   .delete(bugsController.remove);
 

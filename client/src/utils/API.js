@@ -25,6 +25,6 @@ export default {
 
   updateBug: function (id, bugdata) {
     console.log("ur mom");
-    return axios.put("/api/" + id, bugdata);
+    return axios.put("/api/bugs/" + id, bugdata);
   },
 };
