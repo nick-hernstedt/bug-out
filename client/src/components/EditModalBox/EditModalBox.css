@@ -2,7 +2,7 @@
   color: #01135a;
 }
 .hide {
-  visibility: hidden;
+  display: none;
   width: 600px;
   margin: auto;
   height: 350px;
@@ -17,7 +17,7 @@ html body {
 }
 
 .show {
-  visibility: visible;
+  display: block;
   width: 600px;
   margin: auto;
   height: 350px;
