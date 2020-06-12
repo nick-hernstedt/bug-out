@@ -17,6 +17,7 @@ import "./app.css";
 import dragula from "react-dragula";
 import axios from "axios";
 import SubmitModal from "../components/SubmitModal/SubmitModal";
+import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -54,21 +55,39 @@ function Test() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.author && formObject.title && formObject.description) {
-
       API.saveBug({
         title: formObject.title,
         author: formObject.author,
         description: formObject.description,
         projectID: data.user._id,
       })
-        .then(res => loadBugs())
+        .then((res) => loadBugs())
         .catch((err) => console.log(err));
-    } else alert("Please fill out all inputs")
+    } else alert("Please fill out all inputs");
 
-    toggleModal()
+    toggleModal();
+  }
 
+  function handleFormUpdate(event) {
+    event.preventDefault();
+    if (formObject.assignedTo && formObject.description) {
+      API.updateBug({
+        assignedTo: formObject.assignedTo,
+        description: formObject.description,
+      })
+        .then((res) => loadBugs())
+        .catch((err) => console.log(err));
+    } else alert("Please fill out all inputs");
 
-
+    toggleModal();
+  }
+  function deleteBook(id) {
+    API.deleteBug(id)
+      .then((res) => {
+        loadBugs();
+        toggleModal();
+      })
+      .catch((err) => console.log(err));
   }
 
   const data = JSON.parse(localStorage.getItem("data"));
@@ -100,7 +119,7 @@ function Test() {
     }
   }
 
-  main();
+  // main();
 
   function toggleModal(event) {
     if (modalState === "hide") {
@@ -110,9 +129,6 @@ function Test() {
     }
     console.log(modalState);
   }
-
-
-
 
   return (
     <div
@@ -126,7 +142,6 @@ function Test() {
         <Nav></Nav>
 
         <UpdateModalBtn wasd={toggleModal} />
-
 
         <div className="row">
           <div className="col-4">
@@ -146,7 +161,12 @@ function Test() {
           </div>
         </div>
 
-        <ModalBox modalState={modalState} close={toggleModal} className="row" id="newBug">
+        <ModalBox
+          modalState={modalState}
+          close={toggleModal}
+          className="row"
+          id="newBug"
+        >
           <form>
             <p className="form-text">Bug Name:</p>
             <Input
@@ -187,11 +207,74 @@ function Test() {
               className="submitBtn"
               onClick={handleFormSubmit}
             >
-
               Submit Bug
             </FormBtn>
           </form>
         </ModalBox>
+
+        <ModalBox
+          modalState={modalState}
+          close={toggleModal}
+          className="row"
+          id="newBug"
+        >
+          <form>
+            <p className="form-text">Bug Name:</p>
+            <Input
+              onChange={handleInputChange}
+              name="title"
+              placeholder="Bug Name (required)"
+              className="form"
+              style={{
+                height: "25px",
+                width: "200px",
+              }}
+            />
+            <p className="form-text">Submitted By:</p>
+            <Input
+              onChange={handleInputChange}
+              name="author"
+              placeholder="Submitted By (required)"
+              className="form"
+              style={{
+                height: "25px",
+                width: "200px",
+              }}
+            />
+            <p className="form-text">Assigned To:</p>
+            <Input
+              onChange={handleInputChange}
+              name="assigned"
+              placeholder="Assigned To (required)"
+              className="form"
+              style={{
+                height: "25px",
+                width: "200px",
+              }}
+            />
+            <p className="form-text">Bug Description:</p>
+            <TextArea
+              onChange={handleInputChange}
+              name="description"
+              placeholder="Description (required)"
+              className="form"
+              style={{
+                height: "150px",
+                width: "300px",
+              }}
+            />
+
+            <FormBtn
+              style={{ cursor: "pointer" }}
+              className="submitBtn"
+              onClick={handleFormUpdate}
+            >
+              Update Bug
+            </FormBtn>
+            <DeleteBtn />
+          </form>
+        </ModalBox>
+
         <h5 class="joke">{localStorage.getItem("joke")}</h5>
       </div>
     </div>
