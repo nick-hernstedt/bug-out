@@ -1,0 +1,8 @@
+.DeleteBtn {
+  transform: translate(370px, -100px);
+  z-index: +1;
+}
+
+.DeleteBtn:hover {
+  color: #ef0716;
+}

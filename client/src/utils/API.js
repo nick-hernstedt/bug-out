@@ -24,7 +24,8 @@ export default {
   },
 
   updateBug: function (id, bugdata) {
-    console.log("ur mom");
+    console.log("Anthony's mom's chicken pickata");
     return axios.put("/api/bugs/" + id, bugdata);
+
   },
 };
