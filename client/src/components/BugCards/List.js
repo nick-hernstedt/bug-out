@@ -12,6 +12,6 @@ export function List({ children, id }) {
   );
 }
 
-export function ListItem({ children }) {
-  return <li className="list-group-item movable">{children}</li>;
+export function ListItem({ children, id }) {
+  return <li className="list-group-item movable" id={id}>{children}</li>;
 }

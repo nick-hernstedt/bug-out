@@ -11,7 +11,7 @@ function BugCards(props) {
     <>
       <List id={props.id}>
         {props.bugs.map((bug) => (
-          <ListItem key={bug._id}>
+          <ListItem key={bug._id} id={bug._id}>
             {bug.title}
 
             <EditBtn />
