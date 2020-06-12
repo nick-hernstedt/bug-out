@@ -123,7 +123,9 @@ function Test() {
       }}
     >
       <div className="col-8 ">
-        <Nav></Nav>
+        <Nav>
+        </Nav>
+        
 
         <UpdateModalBtn wasd={toggleModal} />
 
@@ -192,7 +194,6 @@ function Test() {
             </FormBtn>
           </form>
         </ModalBox>
-        <h5 class="joke">{localStorage.getItem("joke")}</h5>
       </div>
     </div>
   );
