@@ -22,10 +22,12 @@ import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
 function Test() {
   const [bugs, setBugs] = useState([]);
   const [formObject, setFormObject] = useState({});
-  const [modalState, setModalState] = useState({});
+  const [submitModalState, setSubmitModalState] = useState({});
+  const [editModalState, setEditModalState] = useState({});
 
   useEffect(() => {
-    setModalState("hide");
+    setSubmitModalState("hide");
+    setEditModalState("hide");
     loadBugs();
     var first = "#first";
     var second = "#second";
@@ -65,7 +67,7 @@ function Test() {
         .catch((err) => console.log(err));
     } else alert("Please fill out all inputs");
 
-    toggleModal();
+    toggleSubmitModal();
   }
 
   function handleFormUpdate(event) {
@@ -79,13 +81,13 @@ function Test() {
         .catch((err) => console.log(err));
     } else alert("Please fill out all inputs");
 
-    toggleModal();
+    toggleEditModal();
   }
   function deleteBook(id) {
     API.deleteBug(id)
       .then((res) => {
         loadBugs();
-        toggleModal();
+        toggleEditModal();
       })
       .catch((err) => console.log(err));
   }
@@ -121,13 +123,22 @@ function Test() {
 
   // main();
 
-  function toggleModal(event) {
-    if (modalState === "hide") {
-      setModalState("show");
+  function toggleSubmitModal(event) {
+    if (submitModalState === "hide") {
+      setSubmitModalState("show");
     } else {
-      setModalState("hide");
+      setSubmitModalState("hide");
     }
-    console.log(modalState);
+    console.log(submitModalState);
+  }
+
+  function toggleEditModal(event) {
+    if (editModalState === "hide") {
+      setEditModalState("show");
+    } else {
+      setEditModalState("hide");
+    }
+    console.log(editModalState);
   }
 
   return (
@@ -141,7 +152,7 @@ function Test() {
       <div className="col-8 ">
         <Nav></Nav>
 
-        <UpdateModalBtn wasd={toggleModal} />
+        <UpdateModalBtn wasd={toggleSubmitModal} />
 
         <div className="row">
           <div className="col-4">
@@ -162,8 +173,8 @@ function Test() {
         </div>
 
         <ModalBox
-          modalState={modalState}
-          close={toggleModal}
+          modalState={submitModalState}
+          close={toggleSubmitModal}
           className="row"
           id="newBug"
         >
@@ -213,8 +224,8 @@ function Test() {
         </ModalBox>
 
         <ModalBox
-          modalState={modalState}
-          close={toggleModal}
+          modalState={editModalState}
+          close={toggleEditModal}
           className="row"
           id="newBug"
         >
