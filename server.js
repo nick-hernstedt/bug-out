@@ -50,7 +50,10 @@ app
 app
   .route("/api/:id")
   .get(bugsController.findById)
-  .put(bugsController.update)
+  .put(() => {
+    console.log("something")
+    bugsController.update();
+  })
   .delete(bugsController.remove);
 
 app.get("*", function (req, res) {
