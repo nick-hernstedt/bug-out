@@ -5,11 +5,11 @@ import Logo from "../Logo/Logo";
 function Nav() {
   return (
     <div className="row">
-      <Logo className="col-4" />
-      <h5 className="col-4"
+      <Logo className="col-12" />
+      <h6 className="col-4"
       style={{
-        
-      }}>{localStorage.getItem("joke")}</h5>
+        marginLeft: "400px"
+      }}>{localStorage.getItem("joke")}</h6>
     </div>
   );
 }
