@@ -105,7 +105,7 @@ function Test() {
 
     toggleEditModal();
   }
-  function deleteBook(id) {
+  function deleteBug(id) {
     API.deleteBug(id)
       .then((res) => {
         loadBugs();
@@ -143,7 +143,7 @@ function Test() {
     }
   }
 
-  // main();
+  main();
 
   function toggleSubmitModal(event) {
     if (submitModalState === "hide") {
@@ -179,17 +179,17 @@ function Test() {
         <div className="row">
           <div className="col-4">
             <BugBox>
-              <BugCard bugs={notAssigned} id="first" />
+              <BugCard bugs={notAssigned} delete={deleteBug} id="first" />
             </BugBox>
           </div>
           <div className="col-4">
             <InProgress>
-              <BugCard bugs={inProgress} id="second" />
+              <BugCard bugs={inProgress} delete={deleteBug} id="second" />
             </InProgress>
           </div>
           <div className="col-4">
             <Completed>
-              <BugCard bugs={completed} id="third" />
+              <BugCard bugs={completed} delete={deleteBug} id="third" />
             </Completed>
           </div>
         </div>
