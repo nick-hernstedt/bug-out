@@ -95,9 +95,9 @@ function Test() {
 
   function handleFormUpdate(event) {
     event.preventDefault();
-    if (formObject.assignedTo && formObject.description) {
-      API.updateBug({
-        assignedTo: formObject.assignedTo,
+    if (formObject.assigned || formObject.description) {
+      API.updateBug(editModalInfo._id, {
+        assigned: formObject.assigned,
         description: formObject.description,
       })
         .then((res) => loadBugs())
