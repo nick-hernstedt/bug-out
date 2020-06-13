@@ -3,16 +3,22 @@ import "./EditBtn.css";
 import API from "../../utils/API";
 
 function EditBtn(props) {
-  var id = props.bugId
+  var id = props.bugId;
 
   function getEditModalInfo() {
     API.getBug(id).then((res) => {
-      console.log(res)
-    })
+      console.log(res);
+    });
   }
 
   return (
-    <button className="editBtn" onClick={props.toggleEditModal, getEditModalInfo}>
+    <button
+      className="editBtn"
+      onClick={() => {
+        props.toggleEditModal();
+        getEditModalInfo();
+      }}
+    >
       <i className="fa fa-edit edit"></i>
     </button>
   );
