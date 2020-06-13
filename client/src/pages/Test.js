@@ -68,7 +68,7 @@ function Test() {
   function loadBugs() {
     API.getBugs()
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         setBugs(res.data);
       })
       .catch((err) => console.log(err));
@@ -107,9 +107,9 @@ function Test() {
     } else alert("Please fill out all inputs");
     toggleEditModal();
   }
-
-  function deleteBook(id) {
-    API.deleteBug(id)
+  function deleteBug() {
+    console.log(editModalInfo);
+    API.deleteBug(editModalInfo._id)
       .then((res) => {
         loadBugs();
         toggleEditModal();
@@ -308,7 +308,7 @@ function Test() {
             >
               Update Bug
             </FormBtn>
-            <DeleteBtn />
+            <DeleteBtn delete={deleteBug} />
           </form>
         </ModalBox>
       </div>

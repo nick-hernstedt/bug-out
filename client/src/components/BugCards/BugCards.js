@@ -3,6 +3,7 @@ import EditBtn from "../EditBtn/EditBtn";
 import { List, ListItem } from "./List";
 import "./BugCards.css";
 import "./style.css";
+import DeleteBtn from "../DeleteBtn/DeleteBtn";
 
 function BugCards(props) {
   return (
@@ -11,7 +12,12 @@ function BugCards(props) {
         {props.bugs.map((bug) => (
           <ListItem key={bug._id} id={bug._id}>
             {bug.title}
-            <EditBtn toggleEditModal={props.wasd} getEditModalInfo={props.getEditModalInfo} bugId={bug._id}/>
+
+            <EditBtn
+              toggleEditModal={props.wasd}
+              getEditModalInfo={props.getEditModalInfo}
+              bugId={bug._id}
+            />
           </ListItem>
         ))}
       </List>

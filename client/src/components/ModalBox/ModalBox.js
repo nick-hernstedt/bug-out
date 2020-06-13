@@ -9,6 +9,7 @@ import NeedHelp from "../NeedHelp/NeedHelp";
 import EditBtn from "../EditBtn/EditBtn";
 import SubmitBtn from "../SubmitBtn/SubmitBtn";
 import CloseButton from "../CloseButton/CloseButton";
+import DeleteBtn from "../DeleteBtn/DeleteBtn";
 
 function ModalBox(props) {
   return (

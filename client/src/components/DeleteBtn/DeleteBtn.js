@@ -4,7 +4,13 @@ import { PromiseProvider } from "mongoose";
 
 function DeleteBtn(props) {
   return (
-    <button onClick={props.close} type="button" className="DeleteBtn">
+    <button
+      onClick={() => {
+        props.delete();
+      }}
+      type="button"
+      className="DeleteBtn"
+    >
       Delete Bug
     </button>
   );
