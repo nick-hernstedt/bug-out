@@ -9,7 +9,7 @@ export default {
   // Gets the bug with the given id
 
   getBug: function (id) {
-    return axios.get("/api/" + id);
+    return axios.get("/api/bugs/" + id);
   },
   // Deletes the bug with the given id
 
