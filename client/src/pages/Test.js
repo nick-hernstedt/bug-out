@@ -24,6 +24,7 @@ function Test() {
   const [formObject, setFormObject] = useState({});
   const [submitModalState, setSubmitModalState] = useState({});
   const [editModalState, setEditModalState] = useState({});
+  const [editModalInfo, setEditModalInfo] = useState({});
 
   useEffect(() => {
     setSubmitModalState("hide");
@@ -38,7 +39,6 @@ function Test() {
       document.querySelector(second),
       document.querySelector(third),
     ];
-
 
     var drake = dragula(containers);
     drake.on("drop", (el, target) => {
@@ -151,7 +151,6 @@ function Test() {
     } else {
       setSubmitModalState("hide");
     }
-    console.log(submitModalState);
   }
 
   function toggleEditModal() {
@@ -160,10 +159,14 @@ function Test() {
     } else {
       setEditModalState("hide");
     }
-    console.log(editModalState);
   }
 
-
+  function getEditModalInfo(id) {
+    API.getBug(id).then((res) => {
+      console.log(res.data);
+      setEditModalInfo(res.data);
+    });
+  }
 
   return (
     <div
@@ -181,17 +184,32 @@ function Test() {
         <div className="row">
           <div className="col-4">
             <BugBox>
-              <BugCard bugs={notAssigned} wasd={toggleEditModal} id="first" />
+              <BugCard
+                bugs={notAssigned}
+                wasd={toggleEditModal}
+                getEditModalInfo={getEditModalInfo}
+                id="first"
+              />
             </BugBox>
           </div>
           <div className="col-4">
             <InProgress>
-              <BugCard bugs={inProgress} wasd={toggleEditModal} id="second" />
+              <BugCard
+                bugs={inProgress}
+                wasd={toggleEditModal}
+                getEditModalInfo={getEditModalInfo}
+                id="second"
+              />
             </InProgress>
           </div>
           <div className="col-4">
             <Completed>
-              <BugCard bugs={completed} wasd={toggleEditModal} id="third" />
+              <BugCard
+                bugs={completed}
+                wasd={toggleEditModal}
+                getEditModalInfo={getEditModalInfo}
+                id="third"
+              />
             </Completed>
           </div>
         </div>
@@ -256,9 +274,10 @@ function Test() {
           <form>
             <p className="form-text">Bug Name:</p>
             <Input
+              readOnly="readonly"
               onChange={handleInputChange}
               name="title"
-              placeholder="Bug Name (required)"
+              placeholder={editModalInfo.title}
               className="form"
               style={{
                 height: "25px",
@@ -269,7 +288,7 @@ function Test() {
             <Input
               onChange={handleInputChange}
               name="author"
-              placeholder="Submitted By (required)"
+              placeholder={editModalInfo.author}
               className="form"
               style={{
                 height: "25px",
@@ -280,7 +299,7 @@ function Test() {
             <Input
               onChange={handleInputChange}
               name="assigned"
-              placeholder="Assigned To (required)"
+              placeholder={editModalInfo.assigned}
               className="form"
               style={{
                 height: "25px",
@@ -291,7 +310,7 @@ function Test() {
             <TextArea
               onChange={handleInputChange}
               name="description"
-              placeholder="Description (required)"
+              placeholder={editModalInfo.description}
               className="form"
               style={{
                 height: "150px",
