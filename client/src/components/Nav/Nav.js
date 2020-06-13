@@ -3,12 +3,13 @@ import Logo from "../Logo/Logo";
 import "./Nav.css";
 import { Link } from "react-router-dom";
 
+
 function Nav() {
   return (
   
     <div className="row">
-      
-        <Link className="logoutBtn" to="/">
+
+        <Link onClick={()=>{localStorage.removeItem('data')}} className="logoutBtn" to="/">
          Log Out
         </Link>
 
