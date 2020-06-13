@@ -9,12 +9,12 @@ router.use("/api", apiRoutes);
 
 
 
-router.route("/api/")
+router.route("/api/bugs")
   .get(bugsController.findAll)
   .post(bugsController.create);
 
 
-router.route("api/:id")
+router.route("/api/bugs/:id")
   .get(bugsController.findById)
   .put(bugsController.update)
   .delete(bugsController.remove);

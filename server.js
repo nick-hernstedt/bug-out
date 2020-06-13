@@ -39,22 +39,6 @@ require("./models/Users");
 require("./config/passport");
 app.use(require("./routes"));
 
-// Define any API routes before this runs
-app
-  .route("/api")
-  .get(bugsController.findAll)
-  .post((req, res) => {
-    bugsController.create(req, res);
-  });
-
-app
-  .route("/api/bugs/:id")
-  .get(bugsController.findById)
-  .put((req, res) => {
-    console.log("something");
-    bugsController.update(req, res);
-  })
-  .delete(bugsController.remove);
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

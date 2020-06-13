@@ -28,7 +28,7 @@ function SignUp() {
       .then(function (response) {
         localStorage.setItem("data", JSON.stringify(response.data));
         console.log(JSON.stringify(response.data.user));
-        window.location.replace("/test");
+        //window.location.replace("/test");
       })
       .catch(function (err) {
         alert("project name already exists");
