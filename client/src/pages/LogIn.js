@@ -28,6 +28,7 @@ function LogIn() {
         },
       })
       .then(function (response) {
+        localStorage.setItem("data", JSON.stringify(response.data));
         console.log(response);
         window.location.replace("/test");
       })
