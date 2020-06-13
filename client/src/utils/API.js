@@ -20,7 +20,7 @@ export default {
   // Saves a bug to the database
 
   saveBug: function (bugData) {
-    return axios.post("/api/bugs/", bugData);
+    return axios.post("/api/bugs", bugData);
   },
 
   updateBug: function (id, bugdata) {
