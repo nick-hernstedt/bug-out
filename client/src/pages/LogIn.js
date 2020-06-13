@@ -25,12 +25,16 @@ function LogIn() {
         user: {
           email: signUp.email,
           password: signUp.password,
+          token: localStorage.getItem("token")
         },
       })
       .then(function (response) {
         localStorage.setItem("data", JSON.stringify(response.data));
         console.log(response);
-        window.location.replace("/test");
+        if (response) {
+          window.location.replace("/test");
+
+        }
       })
       .catch(function (err) {
         alert("incorrect password or project name");

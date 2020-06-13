@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
 });
 
 //POST login route (optional, everyone has access)
-router.post('/login', auth.optional, (req, res, next) => {
+router.post('/login', (req, res, next) => {
   const { body: { user } } = req;
 
   if (!user.email) {
