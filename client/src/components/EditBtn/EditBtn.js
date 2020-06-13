@@ -1,18 +1,17 @@
 import React from "react";
 import "./EditBtn.css";
-import API from "../../utils/API";
 
 function EditBtn(props) {
-  var id = props.bugId
-
-  function getEditModalInfo() {
-    API.getBug(id).then((res) => {
-      console.log(res)
-    })
-  }
+  var id = props.bugId;
 
   return (
-    <button className="editBtn" onClick={props.toggleEditModal, getEditModalInfo}>
+    <button
+      className="editBtn"
+      onClick={() => {
+        props.toggleEditModal();
+        props.getEditModalInfo(id);
+      }}
+    >
       <i className="fa fa-edit edit"></i>
     </button>
   );

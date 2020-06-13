@@ -18,12 +18,15 @@ import dragula from "react-dragula";
 import axios from "axios";
 import SubmitModal from "../components/SubmitModal/SubmitModal";
 import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
+import BugInfo from "../components/BugInfo/BugInfo";
 
 function Test() {
+  const data = JSON.parse(localStorage.getItem("data"));
   const [bugs, setBugs] = useState([]);
   const [formObject, setFormObject] = useState({});
   const [submitModalState, setSubmitModalState] = useState({});
   const [editModalState, setEditModalState] = useState({});
+  const [editModalInfo, setEditModalInfo] = useState({});
 
   useEffect(() => {
     setSubmitModalState("hide");
@@ -65,6 +68,7 @@ function Test() {
   function loadBugs() {
     API.getBugs()
       .then((res) => {
+        console.log(res.data);
         setBugs(res.data);
       })
       .catch((err) => console.log(err));
@@ -93,15 +97,14 @@ function Test() {
 
   function handleFormUpdate(event) {
     event.preventDefault();
-    if (formObject.assignedTo && formObject.description) {
-      API.updateBug({
-        assignedTo: formObject.assignedTo,
+    if (formObject.assigned || formObject.description) {
+      API.updateBug(editModalInfo._id, {
+        assigned: formObject.assigned,
         description: formObject.description,
       })
         .then((res) => loadBugs())
         .catch((err) => console.log(err));
     } else alert("Please fill out all inputs");
-
     toggleEditModal();
   }
   function deleteBug(id) {
@@ -113,7 +116,6 @@ function Test() {
       .catch((err) => console.log(err));
   }
 
-  const data = JSON.parse(localStorage.getItem("data"));
   let notAssigned = [];
   let inProgress = [];
   let completed = [];
@@ -150,7 +152,6 @@ function Test() {
     } else {
       setSubmitModalState("hide");
     }
-    console.log(submitModalState);
   }
 
   function toggleEditModal() {
@@ -159,7 +160,13 @@ function Test() {
     } else {
       setEditModalState("hide");
     }
-    console.log(editModalState);
+  }
+
+  function getEditModalInfo(id) {
+    API.getBug(id).then((res) => {
+      console.log(res.data);
+      setEditModalInfo(res.data);
+    });
   }
 
   return (
@@ -178,17 +185,32 @@ function Test() {
         <div className="row">
           <div className="col-4">
             <BugBox>
-              <BugCard bugs={notAssigned} delete={deleteBug} id="first" />
+              <BugCard
+                bugs={notAssigned}
+                wasd={toggleEditModal}
+                getEditModalInfo={getEditModalInfo}
+                id="first"
+              />
             </BugBox>
           </div>
           <div className="col-4">
             <InProgress>
-              <BugCard bugs={inProgress} delete={deleteBug} id="second" />
+              <BugCard
+                bugs={inProgress}
+                wasd={toggleEditModal}
+                getEditModalInfo={getEditModalInfo}
+                id="second"
+              />
             </InProgress>
           </div>
           <div className="col-4">
             <Completed>
-              <BugCard bugs={completed} delete={deleteBug} id="third" />
+              <BugCard
+                bugs={completed}
+                wasd={toggleEditModal}
+                getEditModalInfo={getEditModalInfo}
+                id="third"
+              />
             </Completed>
           </div>
         </div>
@@ -252,32 +274,14 @@ function Test() {
         >
           <form>
             <p className="form-text">Bug Name:</p>
-            <Input
-              onChange={handleInputChange}
-              name="title"
-              placeholder="Bug Name (required)"
-              className="form"
-              style={{
-                height: "25px",
-                width: "200px",
-              }}
-            />
+            <BugInfo>{editModalInfo.title}</BugInfo>
             <p className="form-text">Submitted By:</p>
-            <Input
-              onChange={handleInputChange}
-              name="author"
-              placeholder="Submitted By (required)"
-              className="form"
-              style={{
-                height: "25px",
-                width: "200px",
-              }}
-            />
+            <BugInfo>{editModalInfo.author}</BugInfo>
             <p className="form-text">Assigned To:</p>
             <Input
               onChange={handleInputChange}
               name="assigned"
-              placeholder="Assigned To (required)"
+              placeholder={editModalInfo.assigned}
               className="form"
               style={{
                 height: "25px",
@@ -288,7 +292,7 @@ function Test() {
             <TextArea
               onChange={handleInputChange}
               name="description"
-              placeholder="Description (required)"
+              placeholder={editModalInfo.description}
               className="form"
               style={{
                 height: "150px",

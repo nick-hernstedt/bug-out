@@ -9,7 +9,7 @@ function Nav() {
   
     <div className="row">
 
-        <Link onClick={()=>{localStorage.removeItem('data')}} className="logoutBtn" to="/">
+        <Link className="logoutBtn" to="/">
          Log Out
         </Link>
 

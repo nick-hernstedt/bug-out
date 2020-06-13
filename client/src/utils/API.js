@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   // Gets all bugs
   getBugs: function () {
-    return axios.get("/api");
+    return axios.get("/api/bugs");
   },
 
   // Gets the bug with the given id
@@ -14,13 +14,13 @@ export default {
   // Deletes the bug with the given id
 
   deleteBug: function (id) {
-    return axios.delete("/api/" + id);
+    return axios.delete("/api/bugs/" + id);
   },
 
   // Saves a bug to the database
 
   saveBug: function (bugData) {
-    return axios.post("/api/", bugData);
+    return axios.post("/api/bugs", bugData);
   },
 
   updateBug: function (id, bugdata) {
