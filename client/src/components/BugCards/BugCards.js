@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import EditBtn from "../EditBtn/EditBtn";
 import { List, ListItem } from "./List";
 import "./BugCards.css";
@@ -13,7 +13,7 @@ function BugCards(props) {
           <ListItem key={bug._id} id={bug._id}>
             {bug.title}
             <DeleteBtn delete={props.deleteBugs} />
-            <EditBtn />
+            <EditBtn toggleEditModal={props.wasd} bugId={bug._id} />
           </ListItem>
         ))}
       </List>

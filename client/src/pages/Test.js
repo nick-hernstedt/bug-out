@@ -38,10 +38,9 @@ function Test() {
       document.querySelector(second),
       document.querySelector(third),
     ];
-    // dragula({ containers: containers });
+
     var drake = dragula(containers);
     drake.on("drop", (el, target) => {
-      console.log(el.id);
       if (target === document.querySelector(first)) {
         API.updateBug(el.id, {
           inProgress: false,
@@ -145,7 +144,7 @@ function Test() {
 
   main();
 
-  function toggleSubmitModal(event) {
+  function toggleSubmitModal() {
     if (submitModalState === "hide") {
       setSubmitModalState("show");
     } else {
@@ -154,7 +153,7 @@ function Test() {
     console.log(submitModalState);
   }
 
-  function toggleEditModal(event) {
+  function toggleEditModal() {
     if (editModalState === "hide") {
       setEditModalState("show");
     } else {
