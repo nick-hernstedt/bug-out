@@ -28,8 +28,7 @@ function SignUp() {
       })
       .then(function (response) {
         localStorage.setItem("data", JSON.stringify(response.data));
-        localStorage.setItem("token", JSON.stringify(response.data.token));
-        console.log(JSON.stringify(response.data.user));
+        localStorage.setItem("token", JSON.stringify(response.data.user.token));
         window.location.replace("/test");
       })
       .catch(function (err) {
