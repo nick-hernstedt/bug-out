@@ -38,10 +38,10 @@ function Test() {
       document.querySelector(second),
       document.querySelector(third),
     ];
-    // dragula({ containers: containers });
+
+
     var drake = dragula(containers);
     drake.on("drop", (el, target) => {
-      console.log(el.id);
       if (target === document.querySelector(first)) {
         API.updateBug(el.id, {
           inProgress: false,
@@ -143,9 +143,9 @@ function Test() {
     }
   }
 
-  // main();
+  main();
 
-  function toggleSubmitModal(event) {
+  function toggleSubmitModal() {
     if (submitModalState === "hide") {
       setSubmitModalState("show");
     } else {
@@ -154,7 +154,7 @@ function Test() {
     console.log(submitModalState);
   }
 
-  function toggleEditModal(event) {
+  function toggleEditModal() {
     if (editModalState === "hide") {
       setEditModalState("show");
     } else {
@@ -162,6 +162,8 @@ function Test() {
     }
     console.log(editModalState);
   }
+
+
 
   return (
     <div
@@ -179,17 +181,17 @@ function Test() {
         <div className="row">
           <div className="col-4">
             <BugBox>
-              <BugCard bugs={notAssigned} id="first" />
+              <BugCard bugs={notAssigned} wasd={toggleEditModal} id="first" />
             </BugBox>
           </div>
           <div className="col-4">
             <InProgress>
-              <BugCard bugs={inProgress} id="second" />
+              <BugCard bugs={inProgress} wasd={toggleEditModal} id="second" />
             </InProgress>
           </div>
           <div className="col-4">
             <Completed>
-              <BugCard bugs={completed} id="third" />
+              <BugCard bugs={completed} wasd={toggleEditModal} id="third" />
             </Completed>
           </div>
         </div>
