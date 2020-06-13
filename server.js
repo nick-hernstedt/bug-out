@@ -6,7 +6,7 @@ const app = express();
 const bugsController = require("./controllers/bugController");
 const router = require("express").Router();
 const bodyParser = require("body-parser");
-const session = require("express-session");
+// const session = require("express-session");
 const cors = require("cors");
 const errorHandler = require("errorhandler");
 
@@ -15,14 +15,14 @@ app.use(require("morgan")("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(
-  session({
-    secret: "passport-tutorial",
-    cookie: { maxAge: 60000 },
-    resave: false,
-    saveUninitialized: false,
-  })
-);
+// app.use(
+//   session({
+//     secret: "passport-tutorial",
+//     cookie: { maxAge: 60000 },
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
