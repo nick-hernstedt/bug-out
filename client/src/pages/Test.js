@@ -21,6 +21,7 @@ import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
 import BugInfo from "../components/BugInfo/BugInfo";
 
 function Test() {
+  const data = JSON.parse(localStorage.getItem("data"));
   const [bugs, setBugs] = useState([]);
   const [formObject, setFormObject] = useState({});
   const [submitModalState, setSubmitModalState] = useState({});
@@ -67,6 +68,7 @@ function Test() {
   function loadBugs() {
     API.getBugs()
       .then((res) => {
+        console.log(res.data)
         setBugs(res.data);
       })
       .catch((err) => console.log(err));
@@ -115,7 +117,6 @@ function Test() {
       .catch((err) => console.log(err));
   }
 
-  const data = JSON.parse(localStorage.getItem("data"));
   let notAssigned = [];
   let inProgress = [];
   let completed = [];
