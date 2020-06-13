@@ -2,3 +2,12 @@
   font-family: "Tinos", serif;
   font-size: 16px;
 }
+
+.logoutBtn {
+  background-color: transparent;
+  color: #08c9c0;
+  font-size: 16px;
+  border: none;
+  text-decoration: underline;
+  font-family: "Tinos", serif;
+}
