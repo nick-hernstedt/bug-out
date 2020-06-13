@@ -8,7 +8,7 @@ const router = require("express").Router();
 const bodyParser = require("body-parser");
 // const session = require("express-session");
 const cors = require("cors");
-// const errorHandler = require("errorhandler");
+
 
 app.use(cors());
 app.use(require("morgan")("dev"));
@@ -27,7 +27,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  // app.use(errorHandler);
 }
 
 // Connect to the Mongo DB
@@ -35,9 +34,6 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/bugCollection"
 );
 
-app.get("/tester", () => {
-  console.log("ya-got-me")
-})
 
 require("./models/Users");
 require("./config/passport");
