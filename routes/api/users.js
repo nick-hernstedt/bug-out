@@ -5,7 +5,7 @@ const auth = require('../auth');
 const Users = mongoose.model('Users');
 
 //POST new user route (optional, everyone has access)
-router.post('/', auth.optional, (req, res) => {
+router.post('/', (req, res) => {
   const { body: { user } } = req;
 
   console.log("hit")
