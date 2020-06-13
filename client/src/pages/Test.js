@@ -83,9 +83,9 @@ function Test() {
     event.preventDefault();
     if (formObject.author && formObject.title && formObject.description) {
       API.saveBug({
-        title: formObject.title,
-        author: formObject.author,
-        description: formObject.description,
+        title: "formObject.title",
+        author: "formObject.author",
+        description: "formObject.description",
         projectID: data.user._id,
       })
         .then((res) => loadBugs())
