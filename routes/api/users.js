@@ -8,6 +8,7 @@ const Users = mongoose.model('Users');
 router.post('/', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
+  console.log("hit")
 
 
   if (!user.email) {
