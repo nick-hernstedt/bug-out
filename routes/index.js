@@ -4,8 +4,8 @@ const router = require("express").Router();
 const apiRoutes = require("./api");
 const bugsController = require("../controllers/bugController");
 
-// API Routes
-router.use("/api", apiRoutes);
+// // API Routes
+// router.use("/api/", apiRoutes);
 
 
 
