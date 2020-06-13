@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter as Redirect } from "react-router-dom";
 import API from "../utils/API";
 import axios from "axios";
 import "./app.css";
