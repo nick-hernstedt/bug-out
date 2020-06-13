@@ -18,6 +18,7 @@ function SignUp() {
   function onSubmit(event) {
     event.preventDefault();
 
+
     axios
       .post("/api/users", {
         user: {
@@ -31,7 +32,7 @@ function SignUp() {
         //window.location.replace("/test");
       })
       .catch(function (err) {
-        alert("project name already exists");
+        console.log(err)
       });
   }
 
