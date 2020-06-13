@@ -11,12 +11,12 @@ router.use("/api", apiRoutes);
 
 router.route("/api/bugs")
   .get(bugsController.findAll)
-  .post(bugsController.create);
+  .post(bugsController.create(req, res));
 
 
 router.route("/api/bugs/:id")
   .get(bugsController.findById)
-  .put(bugsController.update)
+  .put(bugsController.update(req, res))
   .delete(bugsController.remove);
 
 // If no API routes are hit, send the React app
