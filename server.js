@@ -35,9 +35,14 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/bugCollection"
 );
 
+app.get("/tester", () => {
+  console.log("ya-got-me")
+})
+
 require("./models/Users");
 require("./config/passport");
 app.use(require("./routes"));
+
 
 
 app.get("*", function (req, res) {
