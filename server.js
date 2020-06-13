@@ -37,7 +37,7 @@ mongoose.connect(
 
 require("./models/Users");
 require("./config/passport");
-// app.use(require("./routes"));
+app.use(require("./routes"));
 
 // Define any API routes before this runs
 app
