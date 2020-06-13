@@ -107,8 +107,9 @@ function Test() {
     } else alert("Please fill out all inputs");
     toggleEditModal();
   }
-  function deleteBug(id) {
-    API.deleteBug(id)
+  function deleteBug() {
+    console.log(editModalInfo);
+    API.deleteBug(editModalInfo._id)
       .then((res) => {
         loadBugs();
         toggleEditModal();
@@ -307,7 +308,7 @@ function Test() {
             >
               Update Bug
             </FormBtn>
-            <DeleteBtn />
+            <DeleteBtn delete={deleteBug} />
           </form>
         </ModalBox>
       </div>

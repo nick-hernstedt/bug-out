@@ -12,12 +12,12 @@ function BugCards(props) {
         {props.bugs.map((bug) => (
           <ListItem key={bug._id} id={bug._id}>
             {bug.title}
-<<<<<<< HEAD
-            <DeleteBtn delete={props.deleteBugs} />
-            <EditBtn toggleEditModal={props.wasd} bugId={bug._id} />
-=======
-            <EditBtn toggleEditModal={props.wasd} getEditModalInfo={props.getEditModalInfo} bugId={bug._id}/>
->>>>>>> 8451b23021c6b6f95069057fe74671bb9955406a
+
+            <EditBtn
+              toggleEditModal={props.wasd}
+              getEditModalInfo={props.getEditModalInfo}
+              bugId={bug._id}
+            />
           </ListItem>
         ))}
       </List>
