@@ -21,8 +21,6 @@ function ModalBox(props) {
         <CloseButton close={props.close} />
 
         <DateMade />
-        <NeedHelp />
-        <DropDown />
       </div>
     </div>
   );

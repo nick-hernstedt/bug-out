@@ -18,6 +18,7 @@ import dragula from "react-dragula";
 import axios from "axios";
 import SubmitModal from "../components/SubmitModal/SubmitModal";
 import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
+import BugInfo from "../components/BugInfo/BugInfo"
 
 function Test() {
   const [bugs, setBugs] = useState([]);
@@ -273,7 +274,7 @@ function Test() {
         >
           <form>
             <p className="form-text">Bug Name:</p>
-            <Input
+            {/* <Input
               readOnly="readonly"
               onChange={handleInputChange}
               name="title"
@@ -283,9 +284,10 @@ function Test() {
                 height: "25px",
                 width: "200px",
               }}
-            />
+            /> */}
+            <BugInfo>{editModalInfo.title}</BugInfo>
             <p className="form-text">Submitted By:</p>
-            <Input
+            {/* <Input
               onChange={handleInputChange}
               name="author"
               placeholder={editModalInfo.author}
@@ -294,7 +296,8 @@ function Test() {
                 height: "25px",
                 width: "200px",
               }}
-            />
+            /> */}
+            <BugInfo>{editModalInfo.author}</BugInfo>
             <p className="form-text">Assigned To:</p>
             <Input
               onChange={handleInputChange}
