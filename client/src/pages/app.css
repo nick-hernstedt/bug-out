@@ -66,16 +66,21 @@ form {
   margin-left: 5px;
 }
 
-#assigned {
-  transform: translate(255px, -70px);
+.bugName {
+  margin-bottom: 0px;
+  transform: translateY(-30px);
 }
 
-#bugDesc {
-  transform: translate(255px, -45px);
+.moveUp {
+  transform: translateY(-65px);
 }
 
-.bugInfo {
-  font-size: 16px;
+#updateBug {
+  transform: translate(380px, -125px);
+}
+
+#newBug {
+  height: 370px;
 }
 /* .joke {
   transform: translate(1180px, -580px);

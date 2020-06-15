@@ -274,41 +274,39 @@ function Test() {
           id="newBug"
         >
           <form>
-            <p className="form-text ">Bug Name:</p>
-            <BugInfo className="bugInfo">{editModalInfo.title}</BugInfo>
-            <p className="form-text ">Submitted By:</p>
-            <BugInfo className="bugInfo">{editModalInfo.author}</BugInfo>
-            <p className="form-text" id="assigned">
-              Assigned To:
-            </p>
+            <p className="form-text">Bug Name:</p>
+            <BugInfo>{editModalInfo.title}</BugInfo>
+            <p className="form-text bugName">Submitted By:</p>
+            <BugInfo>{editModalInfo.author}</BugInfo>
+            <p className="form-text moveUp">Assigned To:</p>
             <Input
               onChange={handleInputChange}
               name="assigned"
               placeholder={editModalInfo.assigned}
-              className="form byWho"
+              className="form"
               style={{
                 height: "25px",
                 width: "200px",
+                transform: "translateY(-65px)",
               }}
             />
-            <p className="form-text" id="bugDesc">
-              Bug Description:
-            </p>
+            <p className="form-text moveUp">Bug Description:</p>
             <TextArea
               onChange={handleInputChange}
               name="description"
               placeholder={editModalInfo.description}
-              className="form byWho"
-              id="description"
+              className="form"
               style={{
                 height: "150px",
                 width: "300px",
+                transform: "translateY(-65px)",
               }}
             />
 
             <FormBtn
               style={{ cursor: "pointer" }}
               className="submitBtn"
+              id="updateBug"
               onClick={handleFormUpdate}
             >
               Update Bug
