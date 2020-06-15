@@ -184,7 +184,7 @@ function Test() {
         <UpdateModalBtn wasd={toggleSubmitModal} />
 
         <div className="row">
-          <div className="col-4">
+          <div className="col-lg-4 col-sm-10">
             <BugBox>
               <BugCard
                 bugs={notAssigned}
@@ -194,7 +194,7 @@ function Test() {
               />
             </BugBox>
           </div>
-          <div className="col-4">
+          <div className="col-lg-4 col-sm-10">
             <InProgress>
               <BugCard
                 bugs={inProgress}
@@ -204,7 +204,7 @@ function Test() {
               />
             </InProgress>
           </div>
-          <div className="col-4">
+          <div className="col-lg-4 col-sm-10">
             <Completed>
               <BugCard
                 bugs={completed}
