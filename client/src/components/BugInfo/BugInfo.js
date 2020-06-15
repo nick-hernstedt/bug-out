@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
+import "./BugInfo.css";
 
-
-function BugInfo({children}) {
-    return(
-        <>
-        <p>{children}</p>
-        </>
-    )
+function BugInfo({ children }) {
+  return (
+    <>
+      <p className="bugInfo">{children}</p>
+    </>
+  );
 }
 
-export default BugInfo
+export default BugInfo;

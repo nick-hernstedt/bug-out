@@ -73,6 +73,10 @@ form {
 #bugDesc {
   transform: translate(255px, -45px);
 }
+
+.bugInfo {
+  font-size: 16px;
+}
 /* .joke {
   transform: translate(1180px, -580px);
   font-family: "Tinos", serif;

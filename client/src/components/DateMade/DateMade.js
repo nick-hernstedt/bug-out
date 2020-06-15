@@ -11,7 +11,11 @@ function DateMade() {
     "-" +
     tempDate.getFullYear();
 
-  return <div className="date">Date Submitted : {date} </div>;
+  return (
+    <div className="date">
+      Date Submitted : <span id="date">{date}</span>{" "}
+    </div>
+  );
 }
 
 export default DateMade;

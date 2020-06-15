@@ -275,9 +275,9 @@ function Test() {
         >
           <form>
             <p className="form-text ">Bug Name:</p>
-            <BugInfo>{editModalInfo.title}</BugInfo>
+            <BugInfo className="bugInfo">{editModalInfo.title}</BugInfo>
             <p className="form-text ">Submitted By:</p>
-            <BugInfo>{editModalInfo.author}</BugInfo>
+            <BugInfo className="bugInfo">{editModalInfo.author}</BugInfo>
             <p className="form-text" id="assigned">
               Assigned To:
             </p>
