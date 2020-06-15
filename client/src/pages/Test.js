@@ -274,27 +274,32 @@ function Test() {
           id="newBug"
         >
           <form>
-            <p className="form-text">Bug Name:</p>
+            <p className="form-text ">Bug Name:</p>
             <BugInfo>{editModalInfo.title}</BugInfo>
-            <p className="form-text">Submitted By:</p>
+            <p className="form-text ">Submitted By:</p>
             <BugInfo>{editModalInfo.author}</BugInfo>
-            <p className="form-text">Assigned To:</p>
+            <p className="form-text" id="assigned">
+              Assigned To:
+            </p>
             <Input
               onChange={handleInputChange}
               name="assigned"
               placeholder={editModalInfo.assigned}
-              className="form"
+              className="form byWho"
               style={{
                 height: "25px",
                 width: "200px",
               }}
             />
-            <p className="form-text">Bug Description:</p>
+            <p className="form-text" id="bugDesc">
+              Bug Description:
+            </p>
             <TextArea
               onChange={handleInputChange}
               name="description"
               placeholder={editModalInfo.description}
-              className="form"
+              className="form byWho"
+              id="description"
               style={{
                 height: "150px",
                 width: "300px",

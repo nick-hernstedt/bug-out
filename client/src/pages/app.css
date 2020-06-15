@@ -55,6 +55,24 @@ form {
   float: right;
 }
 
+.byWho {
+  transform: translate(250px, -70px);
+  position: absolute;
+  z-index: 100;
+}
+
+#description {
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
+#assigned {
+  transform: translate(255px, -70px);
+}
+
+#bugDesc {
+  transform: translate(255px, -45px);
+}
 /* .joke {
   transform: translate(1180px, -580px);
   font-family: "Tinos", serif;
