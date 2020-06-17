@@ -25,6 +25,7 @@ html body {
   padding: 10px;
   box-shadow: 0px 0px 60px 30px #08c9c0;
   z-index: 100;
+  transform: translateY(-150px);
 }
 
 html body {
@@ -36,7 +37,7 @@ html body {
     display: block;
     width: 340px;
     margin: auto;
-    height: 400px;
+    height: 420px;
     background-color: #01135a;
     padding: 10px;
     box-shadow: 0px 0px 60px 30px #08c9c0;
@@ -45,16 +46,17 @@ html body {
   }
 }
 
-@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
   .show {
     display: block;
-    width: 600px;
+    width: 340px;
     margin: auto;
-    height: 350px;
+    height: 420px;
     background-color: #01135a;
     padding: 10px;
     box-shadow: 0px 0px 60px 30px #08c9c0;
     z-index: 100;
-    transform: translateY(-250px);
+    transform: translate(-5px, -750px);
   }
 }

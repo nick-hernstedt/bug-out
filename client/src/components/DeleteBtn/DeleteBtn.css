@@ -1,5 +1,5 @@
 .DeleteBtn {
-  transform: translate(230px, -190px);
+  transform: translate(250px, -130px);
   position: absolute;
   z-index: 100;
 }
@@ -12,13 +12,14 @@
   .DeleteBtn {
     transform: translate(60px, 30px);
     position: absolute;
+
     z-index: 100;
   }
 }
 
-@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
   .DeleteBtn {
-    transform: translate(230px, -190px);
+    transform: translate(60px, 25px);
     position: absolute;
     z-index: 100;
   }

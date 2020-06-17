@@ -24,9 +24,9 @@ body {
   }
 }
 
-@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
   .submitBtn {
-    transform: translate(200px, -53px);
+    transform: translate(0px, 10px);
     width: 150px;
     background-color: #08c9c0 !important;
     color: black;
