@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import API from "../utils/API";
 import axios from "axios";
 import "./app.css";
-import { Link } from "react-router-dom";
 
-function SignUp() {
+function SignUp(props) {
   const [redirectToTest, setRedirectToTest] = useState(false);
   const [signUp, setSignUp] = useState({
     email: "",
@@ -30,8 +29,8 @@ function SignUp() {
       .then(function (response) {
         localStorage.setItem("data", JSON.stringify(response.data));
         localStorage.setItem("token", JSON.stringify(response.data.user.token));
-
-        setRedirectToTest(true);
+        //window.location.replace("/test");
+         setRedirectToTest(true);
       })
       .catch(function (err) {
         console.log(err);
@@ -47,6 +46,8 @@ function SignUp() {
   }
 
   joke();
+
+  // const location = useLocation()
 
   return redirectToTest ? (
     <Redirect to="/test" />
