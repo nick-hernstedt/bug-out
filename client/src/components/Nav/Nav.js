@@ -3,27 +3,18 @@ import Logo from "../Logo/Logo";
 import "./Nav.css";
 import { Link } from "react-router-dom";
 
-
 function Nav() {
   return (
-  
     <div className="row">
+      <Link className="logoutBtn" to="/">
+        Log Out
+      </Link>
 
-        <Link className="logoutBtn" to="/">
-         Log Out
-        </Link>
-
-      <Logo className="col-6" />
-      <h6
-        className="col-4 joke"
-        style={{
-          marginLeft: "300px",
-        }}
-      >
+      <Logo className="col-lg-6 col-sm-12" />
+      <h6 className="col-lg-4 col-sm-10 joke">
         {localStorage.getItem("joke")}
       </h6>
     </div>
-   
   );
 }
 export default Nav;
