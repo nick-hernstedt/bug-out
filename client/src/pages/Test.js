@@ -274,11 +274,16 @@ function Test() {
           id="newBug"
         >
           <form>
-            <p className="form-text">Bug Name:</p>
-            <BugInfo>{editModalInfo.title}</BugInfo>
-            <p className="form-text bugName">Submitted By:</p>
-            <BugInfo>{editModalInfo.author}</BugInfo>
-            <p className="form-text moveUp">Assigned To:</p>
+            <p className="form-text">
+              Bug Name: <span className="nameFont">{editModalInfo.title}</span>
+            </p>
+
+            <p className="form-text bugName">
+              Submitted By:{" "}
+              <span className="nameFont">{editModalInfo.author}</span>
+            </p>
+
+            <p className="form-text">Assigned To:</p>
             <Input
               onChange={handleInputChange}
               name="assigned"
@@ -287,10 +292,9 @@ function Test() {
               style={{
                 height: "25px",
                 width: "200px",
-                transform: "translateY(-65px)",
               }}
             />
-            <p className="form-text moveUp">Bug Description:</p>
+            <p className="form-text">Bug Description:</p>
             <TextArea
               onChange={handleInputChange}
               name="description"
@@ -299,7 +303,6 @@ function Test() {
               style={{
                 height: "150px",
                 width: "300px",
-                transform: "translateY(-65px)",
               }}
             />
 
