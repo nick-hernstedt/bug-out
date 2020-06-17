@@ -3,7 +3,6 @@ body {
 }
 
 .submitBtn {
-  /* transform: translate(200px, -53px); */
   width: 150px;
   background-color: #08c9c0 !important;
   color: black;
@@ -13,4 +12,24 @@ body {
 .submitBtn:hover {
   color: #ff01ff;
   cursor: pointer;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .submitBtn {
+    transform: translate(0px, 20px);
+    width: 150px;
+    background-color: #08c9c0 !important;
+    color: black;
+    height: 40px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .submitBtn {
+    transform: translate(0px, 10px);
+    width: 150px;
+    background-color: #08c9c0 !important;
+    color: black;
+    height: 40px;
+  }
 }

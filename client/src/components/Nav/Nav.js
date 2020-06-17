@@ -10,7 +10,7 @@ function Nav() {
         Log Out
       </Link>
 
-      <Logo />
+      <Logo className="" />
       <h6 className="col-lg-4 col-sm-10 joke">
         {localStorage.getItem("joke")}
       </h6>
