@@ -13,12 +13,9 @@ import DeleteBtn from "../DeleteBtn/DeleteBtn";
 
 function ModalBox(props) {
   return (
-    <div
-      className={props.modalState === "hide" ? "hide row" : "show row"}
-      style={{ transform: "translateY(-150px)" }}
-    >
-      <div className="col-7">{props.children}</div>
-      <div className="col-5">
+    <div className={props.modalState === "hide" ? "hide row" : "show row"}>
+      <div className="col-lg-7 col-sm-10 ">{props.children}</div>
+      <div className="col-lg-5 col-sm-10 ">
         <CloseButton close={props.close} />
 
         <DateMade />
