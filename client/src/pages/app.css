@@ -87,6 +87,10 @@ form {
     padding: 20px;
     margin-top: 25%;
   }
+
+  .submitBtn {
+    transform: translate(-400px, 30px);
+  }
 }
 
 @media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
