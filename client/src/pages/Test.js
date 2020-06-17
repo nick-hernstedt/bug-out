@@ -184,7 +184,7 @@ function Test() {
         <UpdateModalBtn wasd={toggleSubmitModal} />
 
         <div className="row">
-          <div className="col-4">
+          <div className="col-lg-4 col-sm-10">
             <BugBox>
               <BugCard
                 bugs={notAssigned}
@@ -194,7 +194,7 @@ function Test() {
               />
             </BugBox>
           </div>
-          <div className="col-4">
+          <div className="col-lg-4 col-sm-10">
             <InProgress>
               <BugCard
                 bugs={inProgress}
@@ -204,7 +204,7 @@ function Test() {
               />
             </InProgress>
           </div>
-          <div className="col-4">
+          <div className="col-lg-4 col-sm-10">
             <Completed>
               <BugCard
                 bugs={completed}
@@ -276,9 +276,9 @@ function Test() {
           <form>
             <p className="form-text">Bug Name:</p>
             <BugInfo>{editModalInfo.title}</BugInfo>
-            <p className="form-text">Submitted By:</p>
+            <p className="form-text bugName">Submitted By:</p>
             <BugInfo>{editModalInfo.author}</BugInfo>
-            <p className="form-text">Assigned To:</p>
+            <p className="form-text moveUp">Assigned To:</p>
             <Input
               onChange={handleInputChange}
               name="assigned"
@@ -287,9 +287,10 @@ function Test() {
               style={{
                 height: "25px",
                 width: "200px",
+                transform: "translateY(-65px)",
               }}
             />
-            <p className="form-text">Bug Description:</p>
+            <p className="form-text moveUp">Bug Description:</p>
             <TextArea
               onChange={handleInputChange}
               name="description"
@@ -298,12 +299,14 @@ function Test() {
               style={{
                 height: "150px",
                 width: "300px",
+                transform: "translateY(-65px)",
               }}
             />
 
             <FormBtn
               style={{ cursor: "pointer" }}
               className="submitBtn"
+              id="updateBug"
               onClick={handleFormUpdate}
             >
               Update Bug

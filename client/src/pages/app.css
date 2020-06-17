@@ -23,7 +23,6 @@ form {
 
 .form {
   border-radius: 0px;
-  padding: 5px;
 }
 
 .signup {
@@ -56,8 +55,53 @@ form {
   float: right;
 }
 
+.byWho {
+  transform: translate(250px, -70px);
+  position: absolute;
+  z-index: 100;
+}
+
+#description {
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
+.bugName {
+  margin-bottom: 0px;
+  transform: translateY(-30px);
+}
+
+.moveUp {
+  transform: translateY(-65px);
+}
+
+#updateBug {
+  transform: translate(380px, -125px);
+}
+
+#newBug {
+  height: 370px;
+}
 /* .joke {
   transform: translate(1180px, -580px);
   font-family: "Tinos", serif;
   width: 30%;
 } */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .signup {
+    width: 75%;
+    background: rgba(1, 19, 90, 0.8);
+    padding: 20px;
+    margin-top: 25%;
+  }
+}
+
+@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
+  .signup {
+    width: 35%;
+    background: rgba(1, 19, 90, 0.8);
+    padding: 20px;
+    margin-top: 25%;
+  }
+}

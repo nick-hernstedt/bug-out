@@ -1,8 +1,9 @@
 .DeleteBtn {
-  transform: translate(370px, -100px);
-  z-index: +1;
+  transform: translate(230px, -190px);
+  position: absolute;
+  z-index: 100;
 }
 
 .DeleteBtn:hover {
-  color: #ef0716;
+  color: #ff01ff;
 }
