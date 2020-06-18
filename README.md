@@ -1,6 +1,4 @@
-# meal-mate
-
-"The App to Meet 'N Eat."
+# BUG-OUT
 
 # Site URL
 
