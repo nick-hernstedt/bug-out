@@ -6,7 +6,7 @@
 
 https://get-the-bug-out.herokuapp.com/
 
-![Image of homepage](bugout.png)
+![Image of homepage](./client/src/assets/images/bugout.png)
 
 # What it is
 
